@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<AnchorPane prefHeight="432.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.JavaFXUI.MainUI">
+   <children>
+      <Sphere drawMode="LINE" layoutX="383.0" layoutY="217.0" radius="0.77" scaleX="200.0" scaleY="200.0" />
+      <PointLight color="CHARTREUSE" layoutX="206.0" layoutY="92.0" lightOn="true" />
+      <MenuBar layoutX="32.0" layoutY="14.0" prefHeight="25.0" prefWidth="542.0">
+        <menus>
+            <Menu mnemonicParsing="false" text="文件">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="数据结构介绍">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="排序算法">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="算法介绍">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="关于本软件">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="设置">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+       <ChoiceBox fx:id="choicetree" layoutX="32.0" layoutY="70.0" prefHeight="58.0" prefWidth="122.0" value="树的可视化">
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="树的可视化" />
+                   <String fx:value="树" />
+                   <String fx:value="二叉树" />
+                   <String fx:value="线索二叉树" />
+                   <String fx:value="森林" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+       <ChoiceBox fx:id="choicegraph" layoutX="32.0" layoutY="147.0" prefHeight="58.0" prefWidth="122.0" value="图的可视化">
+           <items>
+           <FXCollections fx:factory="observableArrayList">
+               <String fx:value="图的可视化" />
+               <String fx:value="有向图" />
+               <String fx:value="无向图" />
+               <String fx:value="有向完全图" />
+               <String fx:value="无向完全图" />
+           </FXCollections>
+           </items>
+       </ChoiceBox>
+       <ChoiceBox fx:id="choicesort" layoutX="32.0" layoutY="226.0" prefHeight="58.0" prefWidth="122.0" value="排序算法的可视化">
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="排序算法的可视化" />
+                   <String fx:value="选择排序" />
+                   <String fx:value="冒泡排序" />
+                   <String fx:value="快速排序" />
+                   <String fx:value="希尔排序" />
+                   <String fx:value="基数排序" />
+                   <String fx:value="堆排序" />
+                   <String fx:value="桶排序" />
+                   <String fx:value="归并排序" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+      <ChoiceBox fx:id="choiceg" layoutX="32.0" layoutY="306.0" prefHeight="58.0" prefWidth="122.0" value="算法可视化">
+          <items>
+              <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="算法可视化" />
+                  <String fx:value="迷宫寻路" />
+                  <String fx:value="电线布线" />
+                  <String fx:value="图的单源最短路径" />
+                  <String fx:value="深度优先遍历" />
+                  <String fx:value="广度优先遍历" />
+              </FXCollections>
+          </items>
+      </ChoiceBox>
+      <Label layoutX="32.0" layoutY="403.0" prefHeight="15.0" prefWidth="542.0" text="——————————————CopyRight©fanghuiplus@163.com————————————" />
+   </children>
+</AnchorPane>

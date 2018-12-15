@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="171.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.inputTree.Searchtree">
+    <children>
+        <Button fx:id="vieweg" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#viewclick" prefHeight="29.0" prefWidth="128.0" text="显示输入数据样例：" />
+        <TextField fx:id="tf" layoutX="146.0" layoutY="8.0" prefHeight="29.0" prefWidth="367.0" />
+        <TextArea fx:id="btreeta" layoutX="14.0" layoutY="49.0" prefHeight="73.0" prefWidth="501.0" promptText="在此输入数据..." />
+      <Button fx:id="prebt" onMouseClicked="#preclicked" layoutX="186.0" layoutY="134.0" mnemonicParsing="false" text="前序" />
+      <Button fx:id="inbt" onMouseClicked="#inclicked" layoutX="237.0" layoutY="134.0" mnemonicParsing="false" text="中序" />
+      <Button fx:id="postbt" onMouseClicked="#postclicked" layoutX="290.0" layoutY="134.0" mnemonicParsing="false" text="后序" />
+    </children>
+</AnchorPane>
