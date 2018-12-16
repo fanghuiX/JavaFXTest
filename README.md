@@ -8,4 +8,4 @@ JavaFX，树，排序算法可视化
 二叉树的静态可视化：
 ![Image text](https://github.com/fanghuiX/JavaFXTest/blob/master/tree.gif)
 冒泡排序可视化：
-![Image text](https://github.com/fanghuiX/JavaFXTest/blob/master/bubblesort.gif)
+![Image text](https://github.com/fanghuiX/JavaFXTest/blob/master/bobblesort.gif)
