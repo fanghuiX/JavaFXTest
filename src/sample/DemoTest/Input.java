@@ -87,7 +87,12 @@ public class Input extends Application {
             }
         }
         else if(sortindex == 4){
-
+            if(judge == false){
+                bar.start(new Stage(),new insertSort().getresult(0,num),num1,"插入排序",new insertSort().gettime(0,num2));
+            }
+            else if(judge == true){
+                bar.start(new Stage(),new insertSort().getresult(1,num),num1,"插入排序",new insertSort().gettime(1,num2));
+            }
         }
         else if(sortindex == 5){
 

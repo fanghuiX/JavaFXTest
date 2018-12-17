@@ -80,6 +80,7 @@
                    <String fx:value="选择排序" />
                    <String fx:value="冒泡排序" />
                    <String fx:value="快速排序" />
+                   <String fx:value="直接插入排序" />
                    <String fx:value="希尔排序" />
                    <String fx:value="基数排序" />
                    <String fx:value="堆排序" />
