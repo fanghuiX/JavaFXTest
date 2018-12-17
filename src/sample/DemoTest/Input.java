@@ -13,6 +13,7 @@ import sample.JavaFXUI.MainUI;
 import sample.SortCreate.*;
 
 import java.awt.*;
+import java.util.Random;
 
 public class Input extends Application {
 
@@ -21,7 +22,18 @@ public class Input extends Application {
     @FXML
     public RadioButton updown;
     @FXML
-    public Button startbut;
+    public Button startbut,randomnum;
+
+    public void getrandnum(){
+        StringBuffer sb = new StringBuffer();
+        int[] randnum = new int[20];
+        for(int i=0;i<19;i++){
+            randnum[i] = (int)(1+Math.random()*100);
+            sb.append(randnum[i]+",");
+        }
+        sb.append((int)(1+Math.random()*100));
+        inputta.setText(sb.toString());
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -45,27 +57,34 @@ public class Input extends Application {
         //System.out.println("radiobutton:"+updown.isSelected());
         boolean judge = updown.isSelected();
         int[] num = getarr(inputta.getText());
+        int[] num1 = getarr(inputta.getText());
+        int[] num2 = getarr(inputta.getText());
         BarChartSample bar = new BarChartSample();
         bar.count = 0;
         bar.temp = 0;
         if(sortindex == 1){
             if(judge == false){
-                bar.start(new Stage(),new selectSort().getresult(0,num),num,"选择排序",new selectSort().gettime(0,num));
+                bar.start(new Stage(),new selectSort().getresult(0,num),num1,"选择排序",new selectSort().gettime(0,num2));
             }
             else if(judge == true){
-                bar.start(new Stage(),new selectSort().getresult(1,num),num,"选择排序",new selectSort().gettime(1,num));
+                bar.start(new Stage(),new selectSort().getresult(1,num),num1,"选择排序",new selectSort().gettime(1,num2));
             }
         }
         else if(sortindex == 2){
             if(judge == false){
-                bar.start(new Stage(),new bubbleSort().getresult(0,num),num,"冒泡排序",new bubbleSort().gettime(0,num));
+                bar.start(new Stage(),new bubbleSort().getresult(0,num),num1,"冒泡排序",new bubbleSort().gettime(0,num2));
             }
             else if(judge == true){
-                bar.start(new Stage(),new bubbleSort().getresult(1,num),num,"冒泡排序",new bubbleSort().gettime(1,num));
+                bar.start(new Stage(),new bubbleSort().getresult(1,num),num1,"冒泡排序",new bubbleSort().gettime(1,num2));
             }
         }
         else if(sortindex == 3){
-
+            if(judge == false){
+                bar.start(new Stage(),new quickSort().getresult(0,num),num1,"快速排序",new quickSort().gettime(0,num2));
+            }
+            else if(judge == true){
+                bar.start(new Stage(),new quickSort().getresult(1,num),num1,"快速排序",new quickSort().gettime(1,num2));
+            }
         }
         else if(sortindex == 4){
 
