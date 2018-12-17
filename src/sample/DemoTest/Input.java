@@ -24,15 +24,15 @@ public class Input extends Application {
     @FXML
     public Button startbut,randomnum;
 
-    public void getrandnum(){
-        StringBuffer sb = new StringBuffer();
+    public void getrnum(){
+        StringBuffer sb1 = new StringBuffer();
         int[] randnum = new int[20];
         for(int i=0;i<19;i++){
             randnum[i] = (int)(1+Math.random()*100);
-            sb.append(randnum[i]+",");
+            sb1.append(randnum[i]+",");
         }
-        sb.append((int)(1+Math.random()*100));
-        inputta.setText(sb.toString());
+        sb1.append((int)(1+Math.random()*100));
+        inputta.setText(sb1.toString());
     }
 
     @Override
