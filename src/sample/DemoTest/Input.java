@@ -23,12 +23,12 @@ public class Input extends Application {
     public RadioButton updown;
     @FXML
     public Button startbut,randomnum;
-
+    //生成20个1-200的随机数
     public void getrnum(){
         StringBuffer sb1 = new StringBuffer();
         int[] randnum = new int[20];
         for(int i=0;i<19;i++){
-            randnum[i] = (int)(1+Math.random()*100);
+            randnum[i] = (int)(1+Math.random()*200);
             sb1.append(randnum[i]+",");
         }
         sb1.append((int)(1+Math.random()*100));
@@ -56,6 +56,7 @@ public class Input extends Application {
         int sortindex = new MainUI().sortindex;
         //System.out.println("radiobutton:"+updown.isSelected());
         boolean judge = updown.isSelected();
+        //由于调用一次排序函数，num已经被排序好，所以多初始化几个初始数组
         int[] num = getarr(inputta.getText());
         int[] num1 = getarr(inputta.getText());
         int[] num2 = getarr(inputta.getText());
@@ -95,7 +96,12 @@ public class Input extends Application {
             }
         }
         else if(sortindex == 5){
-
+            if(judge == false){
+                bar.start(new Stage(),new shellSort().getresult(0,num),num1,"希尔排序",new shellSort().gettime(0,num2));
+            }
+            else if(judge == true){
+                bar.start(new Stage(),new shellSort().getresult(1,num),num1,"希尔排序",new shellSort().gettime(1,num2));
+            }
         }
         else if(sortindex == 6){
 

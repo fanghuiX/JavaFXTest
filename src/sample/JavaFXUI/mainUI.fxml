@@ -84,7 +84,6 @@
                    <String fx:value="希尔排序" />
                    <String fx:value="基数排序" />
                    <String fx:value="堆排序" />
-                   <String fx:value="桶排序" />
                    <String fx:value="归并排序" />
                </FXCollections>
            </items>

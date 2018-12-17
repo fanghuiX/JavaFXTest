@@ -78,17 +78,19 @@ public class MainUI implements Initializable {
                  Number old_val,Number new_val) -> {
                     System.out.println("choicesort index:"+new_val);
                     sortindex = new_val.intValue();
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Input i = new Input();
-                                i.start(new Stage());
-                            } catch (Exception e) {
-                                System.out.println(e.getMessage());
+                    if(new_val.intValue() != 0) {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Input i = new Input();
+                                    i.start(new Stage());
+                                } catch (Exception e) {
+                                    System.out.println(e.getMessage());
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 }
         );
         //响应ChoiceBox：choiceg的选择
