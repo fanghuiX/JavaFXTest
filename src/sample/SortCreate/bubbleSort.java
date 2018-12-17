@@ -8,33 +8,9 @@ public class bubbleSort {
         int m = num.length;
         long starttime = 0;
         long endtime = 0;
-        if(flag == 0) {
-            starttime = System.nanoTime();
-            for(int i=0;i<m;i++){
-                for(int j=0;j<m-i-1;j++){
-                    if(num[j] > num[j+1]){
-                        int temp = num[j];
-                        num[j] = num[j+1];
-                        num[j+1] = temp;;
-                    }
-                }
-            }
-            endtime = System.nanoTime();
-        }
-        //降序
-        else if(flag == 1){
-            starttime = System.nanoTime();
-            for(int i=0;i<m;i++){
-                for(int j=0;j<m-i-1;j++){
-                    if(num[j] < num[j+1]){
-                        int temp = num[j];
-                        num[j] = num[j+1];
-                        num[j+1] = temp;;
-                    }
-                }
-            }
-            endtime = System.nanoTime();
-        }
+        starttime = System.nanoTime();
+        getresult(flag,num);
+        endtime = System.nanoTime();
         double res = (endtime-starttime)/1000000.0;
         return res+"ms";
     }

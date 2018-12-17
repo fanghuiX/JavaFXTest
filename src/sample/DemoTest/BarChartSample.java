@@ -75,7 +75,11 @@ public class BarChartSample{
             int j = i+1;
             series.getData().add(new XYChart.Data(""+j,num[i]));
         }
-
+        StringBuffer sb = new StringBuffer();
+        for(int i=0;i<result.get(result.size()-1).length;i++){
+            sb.append(""+result.get(result.size()-1)[i]+" ");
+        }
+        tf3.setText(sb.toString());
         root.getChildren().addAll(bc,lb1,lb3,lb4,tf1,tf2,tf3);
         Scene scene  = new Scene(root,800,600);
         stage.setScene(scene);
@@ -98,11 +102,6 @@ public class BarChartSample{
                             d.setYValue(result.get(count)[temp]);
                             temp++;
                         }
-                        StringBuffer sb = new StringBuffer();
-                        for(int i=0;i<result.get(count).length;i++){
-                            sb.append(""+result.get(count)[i]+" ");
-                        }
-                        tf3.setText(sb.toString());
                         count++;
                         temp = 0;
                     }

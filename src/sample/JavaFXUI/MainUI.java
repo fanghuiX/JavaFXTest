@@ -21,60 +21,58 @@ public class MainUI implements Initializable {
     public static int graphindex;
     public static int sortindex;
     public static int gindex;
-    //响应ChoiceBox：choicetree的选择
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //响应ChoiceBox：choicetree的选择
         choicetree.getSelectionModel().selectedIndexProperty().addListener(
                 (ObservableValue<? extends Number> ov,
                  Number old_val,Number new_val) -> {
                     System.out.println("choicetree index:"+new_val);
                     index = new_val.intValue();
-                    if(new_val.intValue() != 3) {
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    Inputbtree.getInstance().start(new Stage());
-                                } catch (Exception e) {
-                                    System.out.println(e.getMessage());
+                    if(new_val.intValue() != 0) {
+                        if (new_val.intValue() != 3) {
+                            Platform.runLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        Inputbtree.getInstance().start(new Stage());
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
                                 }
-                            }
-                        });
-                    }
-                    else{
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    Searchtree.getInstance().start(new Stage());
-                                } catch (Exception e) {
-                                    System.out.println(e.getMessage());
+                            });
+                        } else {
+                            Platform.runLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        Searchtree.getInstance().start(new Stage());
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
                 }
         );
-
+        //响应ChoiceBox：choicegraph的选择
         choicegraph.getSelectionModel().selectedIndexProperty().addListener(
                 (ObservableValue<? extends Number> ov,
                  Number old_val,Number new_val) -> {
                     System.out.println("choicegraph index:"+new_val);
                     graphindex = new_val.intValue();
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Input i = new Input();
-                                i.start(new Stage());
-                            } catch (Exception e) {
-                                System.out.println(e.getMessage());
-                            }
-                        }
-                    });
+                    Defaultui dui = new Defaultui();
+                    try{
+                        dui.start(new Stage());
+                    }
+                    catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
                 }
         );
-
+        //响应ChoiceBox：choicesort的选择
         choicesort.getSelectionModel().selectedIndexProperty().addListener(
                 (ObservableValue<? extends Number> ov,
                  Number old_val,Number new_val) -> {
@@ -93,7 +91,7 @@ public class MainUI implements Initializable {
                     });
                 }
         );
-
+        //响应ChoiceBox：choiceg的选择
         choiceg.getSelectionModel().selectedIndexProperty().addListener(
                 (ObservableValue<? extends Number> ov,
                  Number old_val,Number new_val) -> {

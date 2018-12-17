@@ -7,33 +7,9 @@ public class selectSort {
         int m = num.length;
         long starttime = 0;
         long endtime = 0;
-        if(flag == 0) {
-            starttime = System.nanoTime();
-            for (int i = 0; i < m - 1; i++) {
-                for (int j = i + 1; j < m; j++) {
-                    if (num[i] > num[j]) {
-                        int temp = num[i];
-                        num[i] = num[j];
-                        num[j] = temp;
-                    }
-                }
-            }
-            endtime = System.nanoTime();
-        }
-        //降序
-        else if(flag == 1){
-            starttime = System.nanoTime();
-            for (int i = 0; i < m - 1; i++) {
-                for (int j = i + 1; j < m; j++) {
-                    if (num[i] < num[j]) {
-                        int temp = num[i];
-                        num[i] = num[j];
-                        num[j] = temp;
-                    }
-                }
-            }
-            endtime = System.nanoTime();
-        }
+        starttime = System.nanoTime();
+        getresult(flag,num);
+        endtime = System.nanoTime();
         double res = (endtime-starttime)/1000000.0;
         return res+"ms";
     }
