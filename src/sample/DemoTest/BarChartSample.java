@@ -81,6 +81,7 @@ public class BarChartSample{
             sb.append(""+result.get(result.size()-1)[i]+" ");
         }
         tf3.setText(sb.toString());
+        bc.getData().addAll(series);
         root.getChildren().addAll(bc,lb1,lb3,lb4,tf1,tf2,tf3);
         Scene scene  = new Scene(root,800,600);
         stage.setScene(scene);
@@ -91,7 +92,6 @@ public class BarChartSample{
         catch (InterruptedException e){
             System.out.println(e.getMessage());
         }
-        bc.getData().addAll(series);
 
         //实现变换
         Timeline tl = new Timeline();

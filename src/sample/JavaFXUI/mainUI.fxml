@@ -85,6 +85,7 @@
                    <String fx:value="基数排序" />
                    <String fx:value="堆排序" />
                    <String fx:value="归并排序" />
+                   <String fx:value="排序比较" />
                </FXCollections>
            </items>
        </ChoiceBox>

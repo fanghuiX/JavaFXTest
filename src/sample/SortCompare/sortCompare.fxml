@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<AnchorPane prefHeight="208.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SortCompare.SortCompare">
+   <children>
+      <Label layoutX="14.0" layoutY="15.0" prefHeight="24.0" prefWidth="219.0" text="请输入数据并选择需要比较的两个排序：" />
+      <Button fx:id="randomnum" layoutX="384.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#randomnum" prefHeight="23.0" prefWidth="85.0" text="随机数据" />
+      <TextArea fx:id="numtext" layoutX="14.0" layoutY="50.0" prefHeight="54.0" prefWidth="457.0" />
+      <ChoiceBox fx:id="firstchoice" layoutX="13.0" layoutY="118.0" prefHeight="36.0" prefWidth="213.0" value="选择第一个排序算法">
+       <items>
+           <FXCollections fx:factory="observableArrayList">
+               <String fx:value="选择第一个排序算法" />
+               <String fx:value="选择排序" />
+               <String fx:value="冒泡排序" />
+               <String fx:value="快速排序" />
+               <String fx:value="直接插入排序" />
+               <String fx:value="希尔排序" />
+               <String fx:value="基数排序" />
+               <String fx:value="堆排序" />
+               <String fx:value="归并排序" />
+           </FXCollections>
+       </items>
+      </ChoiceBox>
+      <ChoiceBox fx:id="secondchoice" layoutX="263.0" layoutY="118.0" prefHeight="36.0" prefWidth="207.0" value="选择第二个排序算法">
+       <items>
+           <FXCollections fx:factory="observableArrayList">
+               <String fx:value="选择第二个排序算法" />
+               <String fx:value="选择排序" />
+               <String fx:value="冒泡排序" />
+               <String fx:value="快速排序" />
+               <String fx:value="直接插入排序" />
+               <String fx:value="希尔排序" />
+               <String fx:value="基数排序" />
+               <String fx:value="堆排序" />
+               <String fx:value="归并排序" />
+           </FXCollections>
+       </items>
+      </ChoiceBox>
+      <RadioButton fx:id="updown" layoutX="158.0" layoutY="178.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="53.0" text="降序" />
+      <Button fx:id="startcompare" layoutX="227.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#startcompare" prefHeight="23.0" prefWidth="85.0" text="开始比较" />
+   </children>
+</AnchorPane>

@@ -7,6 +7,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 import javafx.application.Platform;
 import sample.DemoTest.Input;
+import sample.SortCompare.SortCompare;
 import sample.inputTree.Defaultui;
 import sample.inputTree.Inputbtree;
 import sample.inputTree.Searchtree;
@@ -78,13 +79,28 @@ public class MainUI implements Initializable {
                  Number old_val,Number new_val) -> {
                     System.out.println("choicesort index:"+new_val);
                     sortindex = new_val.intValue();
-                    if(new_val.intValue() != 0) {
+                    //八大排序
+                    if(sortindex != 0 && sortindex != 9) {
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
                                 try {
                                     Input i = new Input();
                                     i.start(new Stage());
+                                } catch (Exception e) {
+                                    System.out.println(e.getMessage());
+                                }
+                            }
+                        });
+                    }
+                    //转入比较排序的界面
+                    else if(sortindex == 9){
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    SortCompare sc = new SortCompare();
+                                    sc.start(new Stage());
                                 } catch (Exception e) {
                                     System.out.println(e.getMessage());
                                 }
