@@ -66,6 +66,7 @@ public class BarChartSample{
         bc.setPrefHeight(600);
         bc.setPrefWidth(750);
         bc.setTitle(str);
+        bc.setBarGap(750/(20*num.length));
         xAxis.setLabel("数据量");
         xAxis.setTickLabelRotation(90);
         yAxis.setLabel("数据大小");

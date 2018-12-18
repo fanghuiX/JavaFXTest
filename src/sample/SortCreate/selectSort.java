@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class selectSort {
     public String gettime(int flag,int[] num){
-        int m = num.length;
         long starttime = 0;
         long endtime = 0;
         starttime = System.nanoTime();
@@ -14,7 +13,7 @@ public class selectSort {
         return res+"ms";
     }
     public ArrayList<int[]> getresult(int flag,int[] num){
-        ArrayList<int[]> result = new ArrayList<int[]>();
+        ArrayList<int[]> result = new ArrayList<>();
         int m = num.length;
         //升序
         if(flag == 0) {
@@ -25,9 +24,7 @@ public class selectSort {
                         num[i] = num[j];
                         num[j] = temp;
                         int[] mid = new int[m];
-                        for(int k=0;k<m;k++){
-                            mid[k] = num[k];
-                        }
+                        System.arraycopy(num,0,mid,0,num.length);
                         result.add(mid);
                     }
                 }
@@ -42,9 +39,7 @@ public class selectSort {
                         num[i] = num[j];
                         num[j] = temp;
                         int[] mid = new int[m];
-                        for(int k=0;k<m;k++){
-                            mid[k] = num[k];
-                        }
+                        System.arraycopy(num,0,mid,0,num.length);
                         result.add(mid);
                     }
                 }

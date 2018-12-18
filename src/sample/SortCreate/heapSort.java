@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 public class heapSort {
     public String gettime(int flag,int[] num){
-        int m = num.length;
         long starttime = 0;
         long endtime = 0;
-
-        double time = (starttime-endtime)/1000000.0;
+        starttime = System.nanoTime();
+        getresult(flag,num);
+        endtime = System.nanoTime();
+        double time = (endtime-starttime)/1000000.0;
         return time+"ms";
     }
     public static ArrayList<int[]> getresult(int flag, int[] num){

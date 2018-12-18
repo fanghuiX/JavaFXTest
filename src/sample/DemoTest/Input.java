@@ -104,7 +104,12 @@ public class Input extends Application {
             }
         }
         else if(sortindex == 6){
-
+            if(judge == false){
+                bar.start(new Stage(),new redixSort().getresult(0,num),num1,"基数排序",new redixSort().gettime(0,num2));
+            }
+            else if(judge == true){
+                bar.start(new Stage(),new redixSort().getresult(1,num),num1,"基数排序",new redixSort().gettime(1,num2));
+            }
         }
         else if(sortindex == 7){
 

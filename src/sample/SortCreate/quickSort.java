@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class quickSort {
 
     public static String gettime(int flag,int[] num){
-        ArrayList<int[]> result = new ArrayList<int[]>();
-        int m = num.length;
+        ArrayList<int[]> result = new ArrayList<>();
         long starttime = 0;
         long endtime = 0;
         starttime = System.nanoTime();
@@ -16,8 +15,7 @@ public class quickSort {
         return time+"ms";
     }
     public static ArrayList<int[]> getresult(int flag, int[] num){
-        ArrayList<int[]> result = new ArrayList<int[]>();
-        int m = num.length;
+        ArrayList<int[]> result = new ArrayList<>();
         quicksort(flag,0,num.length-1,num,result);
         return result;
     }
