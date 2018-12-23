@@ -2,7 +2,6 @@ package sample.SortCompare;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
@@ -10,10 +9,9 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import sample.DemoTest.BarChartSample;
-
 import java.util.ArrayList;
 
 public class sortCompareUI {
@@ -27,20 +25,70 @@ public class sortCompareUI {
                       String first,String second,String firsttime,String secondtime){
         stage.setTitle("排序算法比较");
         Group root = new Group();
+        StringBuilder sbnum = new StringBuilder();
+        for(int i=0;i<num.length;i++){
+            sbnum.append(num[i]+" ");
+        }
+        StringBuilder sbresult = new StringBuilder();
+        for(int i=0;i<firstsort.get(firstsort.size()-1).length;i++){
+            sbresult.append(firstsort.get(firstsort.size()-1)[i]+" ");
+        }
+
+        //top显示排序时间，结果等信息
+        Label labelf1 = new Label(first+"用时：");
+        labelf1.setLayoutX(40);
+        labelf1.setLayoutY(10);
+        Label labelf2 = new Label("排序数据：");
+        labelf2.setLayoutX(40);
+        labelf2.setLayoutY(38);
+        Label labelf3 = new Label("排序结果：");
+        labelf3.setLayoutX(40);
+        labelf3.setLayoutY(66);
+        TextField textf1 = new TextField(firsttime);
+        textf1.setLayoutX(150);
+        textf1.setLayoutY(10);
+        TextField textf2 = new TextField(sbnum.toString());
+        textf2.setPrefWidth(390);
+        textf2.setLayoutX(100);
+        textf2.setLayoutY(38);
+        TextField textf3 = new TextField(sbresult.toString());
+        textf3.setPrefWidth(390);
+        textf3.setLayoutX(100);
+        textf3.setLayoutY(66);
+
+        Label labels1 = new Label(second+"用时：");
+        labels1.setLayoutX(540);
+        labels1.setLayoutY(10);
+        Label labels2 = new Label("排序数据：");
+        labels2.setLayoutX(540);
+        labels2.setLayoutY(38);
+        Label labels3 = new Label("排序结果：");
+        labels3.setLayoutX(540);
+        labels3.setLayoutY(66);
+        TextField texts1 = new TextField(secondtime);
+        texts1.setLayoutX(650);
+        texts1.setLayoutY(10);
+        TextField texts2 = new TextField(sbnum.toString());
+        texts2.setPrefWidth(400);
+        texts2.setLayoutX(600);
+        texts2.setLayoutY(38);
+        TextField texts3 = new TextField(sbresult.toString());
+        texts3.setPrefWidth(400);
+        texts3.setLayoutX(600);
+        texts3.setLayoutY(66);
 
         Label bottomlabel = new Label("排序算法比较");
         bottomlabel.getStylesheets().add(sortCompareUI.class.getResource("../DemoTest/label.css").toExternalForm());
         bottomlabel.setLayoutX(500);
-        bottomlabel.setLayoutY(560);
+        bottomlabel.setLayoutY(510);
         //第一个排序算法
         final NumberAxis yAxis = new NumberAxis();
         final CategoryAxis xAxis = new CategoryAxis();
         final BarChart<String,Number> firstbc = new BarChart<>(xAxis,yAxis);
         //设置BarChart的样式
         firstbc.getStylesheets().add(sortCompareUI.class.getResource("../DemoTest/databar.css").toExternalForm());
-        //firstbc.setPadding(new Insets(100,0,0,20));
         firstbc.setLayoutX(10);
-        firstbc.setLayoutY(150);
+        firstbc.setLayoutY(100);
         firstbc.setPrefHeight(400);
         firstbc.setPrefWidth(500);
         firstbc.setTitle(first);
@@ -61,9 +109,8 @@ public class sortCompareUI {
         final BarChart<String,Number> secondbc = new BarChart<>(xAxistwo,yAxistwo);
         //设置BarChart的样式
         secondbc.getStylesheets().add(sortCompareUI.class.getResource("databar.css").toExternalForm());
-        //secondbc.setPadding(new Insets(100,0,0,500));
         secondbc.setLayoutX(520);
-        secondbc.setLayoutY(150);
+        secondbc.setLayoutY(100);
         secondbc.setPrefHeight(400);
         secondbc.setPrefWidth(500);
         secondbc.setTitle(second);
@@ -78,8 +125,9 @@ public class sortCompareUI {
             seriestwo.getData().add(new XYChart.Data(""+j,num[i]));
         }
 
-        root.getChildren().addAll(firstbc,secondbc,bottomlabel);
-        Scene scene = new Scene(root,1050,600);
+        root.getChildren().addAll(firstbc,secondbc,bottomlabel,labelf1,labelf2,labelf3,labels1,labels2,labels3,
+                textf1,textf2,textf3,texts1,texts2,texts3);
+        Scene scene = new Scene(root,1050,550);
         stage.setScene(scene);
         stage.show();
 

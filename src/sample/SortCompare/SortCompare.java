@@ -63,7 +63,7 @@ public class SortCompare extends Application {
         scui.start(new Stage(),num3,firstsort,secondsort,first,second,firsttime,secondtime);
     }
 
-    public void randomnum(MouseEvent mouseEvent) {
+    public void randomnum() {
         int[] num = new int[19];
         StringBuffer sb = new StringBuffer();
         for(int i=0;i<num.length;i++){
