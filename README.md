@@ -16,3 +16,7 @@ JavaFX，树，排序算法可视化
 冒泡排序可视化：
 
 ![Image text](https://github.com/fanghuiX/JavaFXTest/blob/master/bobblesort.gif)
+
+排序算法比较可视化：
+
+![Image text](https://github.com/fanghuiX/JavaFXTest/blob/master/sortcompare.gif)
