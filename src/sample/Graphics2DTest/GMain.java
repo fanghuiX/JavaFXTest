@@ -9,4 +9,5 @@ public class GMain{
         Graphics g = graph.getGraphics();
         graph.paint(g);
     }
+
 }
