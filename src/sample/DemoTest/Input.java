@@ -112,10 +112,20 @@ public class Input extends Application {
             }
         }
         else if(sortindex == 7){
-
+            if(judge == false){
+                bar.start(new Stage(),new heapSort().getresult(0,num),num1,"堆排序",new heapSort().gettime(0,num2));
+            }
+            else if(judge == true){
+                bar.start(new Stage(),new heapSort().getresult(1,num),num1,"堆排序",new heapSort().gettime(1,num2));
+            }
         }
         else if(sortindex == 8){
-
+            if(judge == false){
+                bar.start(new Stage(),new mergeSort().getresult(0,num),num1,"归并排序",new mergeSort().gettime(0,num2));
+            }
+            else if(judge == true){
+                bar.start(new Stage(),new mergeSort().getresult(1,num),num1,"归并排序",new mergeSort().gettime(1,num2));
+            }
         }
 
         //隐藏当前输入窗口
