@@ -19,34 +19,97 @@
       <PointLight color="CHARTREUSE" layoutX="206.0" layoutY="92.0" lightOn="true" />
       <MenuBar layoutX="32.0" layoutY="14.0" prefHeight="25.0" prefWidth="542.0">
         <menus>
-            <Menu mnemonicParsing="false" text="文件">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
-               </items>
+            <Menu mnemonicParsing="false" text="树结构介绍">
+                <items>
+                    <MenuItem fx:id="gnjs" mnemonicParsing="false" text="概念介绍" />
+                </items>
+                <items>
+                    <MenuItem fx:id="sdbsf" mnemonicParsing="false" text="树的表示法" />
+                </items>
+                <items>
+                    <MenuItem fx:id="ecs" mnemonicParsing="false" text="二叉树" />
+                </items>
+                <items>
+                    <MenuItem fx:id="hfms" mnemonicParsing="false" text="哈夫曼树" />
+                </items>
+                <items>
+                    <MenuItem fx:id="bs" mnemonicParsing="false" text="B-/B+树" />
+                </items>
+                <items>
+                    <MenuItem fx:id="hhs" mnemonicParsing="false" text="红黑树" />
+                </items>
             </Menu>
-          <Menu mnemonicParsing="false" text="数据结构介绍">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
+          <Menu mnemonicParsing="false" text="其他数据结构介绍">
+              <items>
+                <MenuItem fx:id="array" mnemonicParsing="false" text="数组" />
+              </items>
+              <items>
+                  <MenuItem fx:id="stack" mnemonicParsing="false" text="栈" />
+              </items>
+              <items>
+                  <MenuItem fx:id="queue" mnemonicParsing="false" text="队列" />
+              </items>
+              <items>
+                  <MenuItem fx:id="linklist" mnemonicParsing="false" text="链表" />
+              </items>
+              <items>
+                  <MenuItem fx:id="graph" mnemonicParsing="false" text="图" />
+              </items>
+              <items>
+                  <MenuItem fx:id="heap" mnemonicParsing="false" text="堆" />
+              </items>
+              <items>
+                  <MenuItem fx:id="slb" mnemonicParsing="false" text="散列表" />
+              </items>
           </Menu>
             <Menu mnemonicParsing="false" text="排序算法">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="select" mnemonicParsing="false" text="选择排序" />
                </items>
+                <items>
+                    <MenuItem fx:id="bubble" mnemonicParsing="false" text="冒泡排序" />
+                </items>
+                <items>
+                    <MenuItem fx:id="quick" mnemonicParsing="false" text="快速排序" />
+                </items>
+                <items>
+                    <MenuItem fx:id="insert" mnemonicParsing="false" text="直接插入排序" />
+                </items>
+                <items>
+                    <MenuItem fx:id="shell" mnemonicParsing="false" text="希尔排序" />
+                </items>
+                <items>
+                    <MenuItem fx:id="jspx" mnemonicParsing="false" text="基数排序" />
+                </items>
+                <items>
+                    <MenuItem fx:id="heapsort" mnemonicParsing="false" text="堆排序" />
+                </items>
+                <items>
+                    <MenuItem fx:id="merge" mnemonicParsing="false" text="归并排序" />
+                </items>
             </Menu>
-          <Menu mnemonicParsing="false" text="算法介绍">
+          <Menu mnemonicParsing="false" text="其他算法介绍">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem fx:id="maze" mnemonicParsing="false" text="迷宫寻路" />
             </items>
+              <items>
+                  <MenuItem fx:id="dxbx" mnemonicParsing="false" text="电线布线" />
+              </items>
+              <items>
+                  <MenuItem fx:id="deepsearch" mnemonicParsing="false" text="深度优先搜索" />
+              </items>
+              <items>
+                  <MenuItem fx:id="boardsearch" mnemonicParsing="false" text="广度优先搜索" />
+              </items>
           </Menu>
           <Menu mnemonicParsing="false" text="关于本软件">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="about" mnemonicParsing="false" text="About" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="设置">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="setting" mnemonicParsing="false" text="设置节点属性" />
                </items>
             </Menu>
         </menus>
@@ -62,14 +125,15 @@
                </FXCollections>
            </items>
        </ChoiceBox>
-       <ChoiceBox fx:id="choicegraph" layoutX="32.0" layoutY="147.0" prefHeight="58.0" prefWidth="122.0" value="图的可视化">
+       <ChoiceBox fx:id="choicegraph" layoutX="32.0" layoutY="147.0" prefHeight="58.0" prefWidth="122.0" value="树结构可视化">
            <items>
            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="图的可视化" />
-               <String fx:value="有向图" />
-               <String fx:value="无向图" />
-               <String fx:value="有向完全图" />
-               <String fx:value="无向完全图" />
+               <String fx:value="树结构可视化" />
+               <String fx:value="二叉排序树" />
+               <String fx:value="B-树" />
+               <String fx:value="B+树" />
+               <String fx:value="堆排序" />
+               <String fx:value="红黑树" />
            </FXCollections>
            </items>
        </ChoiceBox>

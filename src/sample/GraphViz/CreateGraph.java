@@ -1,50 +1,13 @@
 package sample.GraphViz;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 import java.io.File;
 import sample.DataProcess.dataProcess;
 
 public class CreateGraph{
     public static String[] nodes =null;
     public static String[] bt = null;
-    public static void main(String[] args){
-        //树，二叉树，线索二叉树，森林
-        //树（广义表表示）："A(B(E(K,L),F),C(G),D(H(M,N),I,J))";
-        //二叉树（数组表示）："ABCDE#FG#####HI";
-        //线索二叉树：
-        //森林：多个广义表
-        @SuppressWarnings("resource")
-        Scanner scan = new Scanner(System.in);
-        System.out.println("请选择要绘制的图形（输入数字回车后输入数据结构表示）：");
-        System.out.println("1.树（例\"A(B(E(K,L),F),C(G),D(H(M,N(X(Y(Z)))),I,J))\"）");
-        System.out.println("2.二叉树(例\"ABCDE#FG#####HI\")");
-        System.out.println("3.线索二叉树");
-        System.out.println("4.森林");
-        int judge = scan.nextInt();
-        String str = scan.next();
-        CreateGraph p = new CreateGraph();
-        p.choice(judge, str);
-	   /*for(String s:nodes){
-		   System.out.print(s+" ");
-	   }
-	   System.out.print("\n");
-	   for(String s:bt){
-		   System.out.println(s);
-	   }*/
-        //开始绘制图形
-        p.start(nodes,bt);
-        //打开生成的图片
-        final Runtime runtime = Runtime.getRuntime();
-        @SuppressWarnings("unused")
-        Process process = null;
-        final String cmd = "rundll32 url.dll FileProtocolHandler file://C:\\Users\\fanghui\\Desktop\\GraphTest\\out.gif";//要打开的文件路径。
-        try {
-            process = runtime.exec(cmd);
-        } catch (final Exception e) {
-            System.out.println("Error exec!");
-        }
-        //p.start2();
-    }
+
     //选择要创建哪一种图形
     public void choice(int flag,String str){
         if(flag == 1){
@@ -86,12 +49,14 @@ public class CreateGraph{
         }
         gv.addln(gv.end_graph());//END
         //节点之间的连接关系输出到控制台
-        System.out.println(gv.getDotSource());
+        String dotSource = gv.getDotSource();
+        System.out.println(dotSource);
         //输出什么格式的图片(gif,dot,fig,pdf,ps,svg,png,plain)
         String type = "png";
         //输出到文件夹以及命名
-        File out = new File("C:/Users/fanghui/IdeaProjects/JavaFXTest/src/sample/JavaFXUI/out." + type);   // Linux
+        File out = new File("C:/Users/fanghui/IdeaProjects/JavaFXTest/src/sample/JavaFXUI/out."+type);
         //File out = new File("c:/eclipse.ws/graphviz-java-api/out." + type);    // Windows
+        System.out.println(out.getAbsolutePath());
         gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
     }
 
@@ -113,4 +78,43 @@ public class CreateGraph{
         //File out = new File("c:/eclipse.ws/graphviz-java-api/tmp/simple." + type);   // Windows
         gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
     }
+
+    /*public static void main(String[] args){
+        //树，二叉树，线索二叉树，森林
+        //树（广义表表示）："A(B(E(K,L),F),C(G),D(H(M,N),I,J))";
+        //二叉树（数组表示）："ABCDE#FG#####HI";
+        //线索二叉树：
+        //森林：多个广义表
+        @SuppressWarnings("resource")
+        Scanner scan = new Scanner(System.in);
+        System.out.println("请选择要绘制的图形（输入数字回车后输入数据结构表示）：");
+        System.out.println("1.树（例\"A(B(E(K,L),F),C(G),D(H(M,N(X(Y(Z)))),I,J))\"）");
+        System.out.println("2.二叉树(例\"ABCDE#FG#####HI\")");
+        System.out.println("3.线索二叉树");
+        System.out.println("4.森林");
+        int judge = scan.nextInt();
+        String str = scan.next();
+        CreateGraph p = new CreateGraph();
+        p.choice(judge, str);
+	   *//*for(String s:nodes){
+		   System.out.print(s+" ");
+	   }
+	   System.out.print("\n");
+	   for(String s:bt){
+		   System.out.println(s);
+	   }*//*
+        //开始绘制图形
+        p.start(nodes,bt);
+        //打开生成的图片
+        final Runtime runtime = Runtime.getRuntime();
+        @SuppressWarnings("unused")
+        Process process = null;
+        final String cmd = "rundll32 url.dll FileProtocolHandler file://C:\\Users\\fanghui\\Desktop\\GraphTest\\out.gif";//要打开的文件路径。
+        try {
+            process = runtime.exec(cmd);
+        } catch (final Exception e) {
+            System.out.println("Error exec!");
+        }
+        //p.start2();
+    }*/
 }
