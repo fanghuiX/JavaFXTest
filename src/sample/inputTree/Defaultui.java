@@ -13,5 +13,6 @@ public class Defaultui extends Application {
         primaryStage.setTitle("请输入数据");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setResizable(false);
     }
 }

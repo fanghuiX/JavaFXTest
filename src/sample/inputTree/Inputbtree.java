@@ -41,6 +41,7 @@ public class Inputbtree extends Application {
         primaryStage.setTitle("请输入数据");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setResizable(false);
     }
     //静态可视化
     public void btreeclick(){

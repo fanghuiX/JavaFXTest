@@ -28,6 +28,7 @@ public class SortCompare extends Application {
         primaryStage.setTitle("排序比较");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setResizable(false);
     }
 
     public void startcompare(MouseEvent mouseEvent) {

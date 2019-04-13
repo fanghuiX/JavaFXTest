@@ -14,5 +14,6 @@ public class Main extends Application {
         primaryStage.setTitle("可视化");
         primaryStage.setScene(new Scene(root, 600, 430));
         primaryStage.show();
+        primaryStage.setResizable(false);
     }
 }

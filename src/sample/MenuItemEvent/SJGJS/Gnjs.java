@@ -31,7 +31,7 @@ public class Gnjs{
     public void start(Stage stage, String str, String url) {
         // create the scene
         stage.setTitle(str);
-        scene = new Scene(new Browser(url),900,600, Color.web("#666970"));
+        scene = new Scene(new Browser(url),700,600, Color.web("#666970"));
         stage.setScene(scene);
         stage.show();
     }
@@ -65,7 +65,7 @@ class Browser extends Region {
 
     @Override
     protected double computePrefWidth(double height) {
-        return 900;
+        return 700;
     }
 
     @Override

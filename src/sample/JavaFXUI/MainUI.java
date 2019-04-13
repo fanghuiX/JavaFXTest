@@ -15,6 +15,7 @@ import sample.MenuItemEvent.SJGJS.Gnjs;
 
 import javafx.scene.control.MenuItem;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -38,9 +39,10 @@ public class MainUI implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //响应 概念介绍 MenuItem
+        String sdgnhtml = new File("src/sample/MenuItemEvent/SJGJS/sdgn.html").getAbsolutePath().replace('\\','/');;
+        //响应 MenuItem
         try {
-            gnjs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "树的概念", "https://www.baidu.com/s?wd=树的概念"); });
+            gnjs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "树的概念", "file:///"+sdgnhtml); });
             sdbsf.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "树的表示法", "https://www.baidu.com/s?wd=树的表示法"); });
             ecs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "二叉树", "https://www.baidu.com/s?wd=二叉树"); });
             hfms.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "哈夫曼树", "https://www.baidu.com/s?wd=哈夫曼树"); });
