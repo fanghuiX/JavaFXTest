@@ -54,9 +54,9 @@ public class CreateGraph{
         //输出什么格式的图片(gif,dot,fig,pdf,ps,svg,png,plain)
         String type = "png";
         //输出到文件夹以及命名
-        File out = new File("C:/Users/fanghui/IdeaProjects/JavaFXTest/src/sample/JavaFXUI/out."+type);
+        File out = new File("src\\sample\\JavaFXUI\\out.png");
         //File out = new File("c:/eclipse.ws/graphviz-java-api/out." + type);    // Windows
-        System.out.println(out.getAbsolutePath());
+        //System.out.println(out.getAbsolutePath());
         gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
     }
 
