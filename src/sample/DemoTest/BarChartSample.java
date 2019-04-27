@@ -53,7 +53,7 @@ public class BarChartSample{
         ArrayList<Label> label = new ArrayList<Label>();
         label.add(lb1);label.add(lb3);label.add(lb4);
         for(Label lb : label){
-            lb.getStylesheets().add(BarChartSample.class.getResource("label.css").toExternalForm());
+            lb.getStylesheets().add(BarChartSample.class.getResource("/sample/DemoTest/label.css").toExternalForm());
         }
 
         //
@@ -61,7 +61,7 @@ public class BarChartSample{
         final CategoryAxis xAxis = new CategoryAxis();
         final BarChart<String,Number> bc = new BarChart<>(xAxis,yAxis);
         //设置BarChart的样式
-        bc.getStylesheets().add(BarChartSample.class.getResource("databar.css").toExternalForm());
+        bc.getStylesheets().add(BarChartSample.class.getResource("/sample/DemoTest/databar.css").toExternalForm());
         bc.setPadding(new Insets(100,0,0,20));
         bc.setPrefHeight(600);
         bc.setPrefWidth(750);

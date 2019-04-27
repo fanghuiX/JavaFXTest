@@ -37,7 +37,7 @@ public class Inputbtree extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("inputbtree.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/inputTree/inputbtree.fxml"));
         primaryStage.setTitle("请输入数据");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

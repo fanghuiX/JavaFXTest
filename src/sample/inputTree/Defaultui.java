@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Defaultui extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("defaultui.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/inputTree/defaultui.fxml"));
         primaryStage.setTitle("请输入数据");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

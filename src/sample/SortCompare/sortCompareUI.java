@@ -78,7 +78,7 @@ public class sortCompareUI {
         texts3.setLayoutY(66);
 
         Label bottomlabel = new Label("排序算法比较");
-        bottomlabel.getStylesheets().add(sortCompareUI.class.getResource("../DemoTest/label.css").toExternalForm());
+        bottomlabel.getStylesheets().add(sortCompareUI.class.getResource("/sample/DemoTest/label.css").toExternalForm());
         bottomlabel.setLayoutX(500);
         bottomlabel.setLayoutY(510);
         //第一个排序算法
@@ -86,7 +86,7 @@ public class sortCompareUI {
         final CategoryAxis xAxis = new CategoryAxis();
         final BarChart<String,Number> firstbc = new BarChart<>(xAxis,yAxis);
         //设置BarChart的样式
-        firstbc.getStylesheets().add(sortCompareUI.class.getResource("../DemoTest/databar.css").toExternalForm());
+        firstbc.getStylesheets().add(sortCompareUI.class.getResource("/sample/DemoTest/databar.css").toExternalForm());
         firstbc.setLayoutX(10);
         firstbc.setLayoutY(100);
         firstbc.setPrefHeight(400);
@@ -108,7 +108,7 @@ public class sortCompareUI {
         final CategoryAxis xAxistwo = new CategoryAxis();
         final BarChart<String,Number> secondbc = new BarChart<>(xAxistwo,yAxistwo);
         //设置BarChart的样式
-        secondbc.getStylesheets().add(sortCompareUI.class.getResource("databar.css").toExternalForm());
+        secondbc.getStylesheets().add(sortCompareUI.class.getResource("/sample/SortCompare/databar.css").toExternalForm());
         secondbc.setLayoutX(520);
         secondbc.setLayoutY(100);
         secondbc.setPrefHeight(400);

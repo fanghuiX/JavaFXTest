@@ -24,7 +24,7 @@ public class SortCompare extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("sortCompare.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/sortCompare/sortCompare.fxml"));
         primaryStage.setTitle("排序比较");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

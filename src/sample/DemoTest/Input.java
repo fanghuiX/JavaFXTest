@@ -37,7 +37,7 @@ public class Input extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("input.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/DemoTest/input.fxml"));
         primaryStage.setTitle("请输入数据");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
