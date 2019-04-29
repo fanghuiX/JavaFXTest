@@ -12,7 +12,8 @@ import sample.inputTree.Defaultui;
 import sample.inputTree.Inputbtree;
 import sample.inputTree.Searchtree;
 import sample.MenuItemEvent.SJGJS.Gnjs;
-
+import sample.HeapSort.Main;
+import sample.HeapSort.newThread;
 import javafx.scene.control.MenuItem;
 
 import java.io.File;
@@ -121,18 +122,25 @@ public class MainUI implements Initializable {
                     }
                 }
         );
-        //响应ChoiceBox：choicegraph的选择
+        //响应ChoiceBox,树结构
         choicegraph.getSelectionModel().selectedIndexProperty().addListener(
                 (ObservableValue<? extends Number> ov,
                  Number old_val,Number new_val) -> {
                     System.out.println("choicegraph index:"+new_val);
+                    // Thread th = Thread.currentThread();
+                    // System.out.println(th.getName());
                     graphindex = new_val.intValue();
-                    Defaultui dui = new Defaultui();
-                    try{
-                        dui.start(new Stage());
+                    if(graphindex == 1) {
+                        newThread newthread = new newThread();
+                        newthread.start();
                     }
-                    catch (Exception e){
-                        System.out.println(e.getMessage());
+                    else {
+                        Defaultui dui = new Defaultui();
+                        try {
+                            dui.start(new Stage());
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
                     }
                 }
         );

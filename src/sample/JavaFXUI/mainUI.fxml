@@ -129,10 +129,10 @@
            <items>
            <FXCollections fx:factory="observableArrayList">
                <String fx:value="树结构可视化" />
-               <String fx:value="二叉排序树" />
+               <String fx:value="堆排序" />
                <String fx:value="B-树" />
                <String fx:value="B+树" />
-               <String fx:value="堆排序" />
+               <String fx:value="二叉排序树" />
                <String fx:value="红黑树" />
            </FXCollections>
            </items>
