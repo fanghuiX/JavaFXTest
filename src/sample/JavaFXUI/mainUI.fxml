@@ -157,11 +157,13 @@
           <items>
               <FXCollections fx:factory="observableArrayList">
                   <String fx:value="算法可视化" />
-                  <String fx:value="迷宫寻路" />
+                  <String fx:value="树深度优先遍历" />
+                  <String fx:value="树广度优先遍历" />
                   <String fx:value="电线布线" />
+                  <String fx:value="喷漆机器人" />
+                  <String fx:value="迷宫寻路深度搜索" />
+                  <String fx:value="迷宫寻路广度搜索" />
                   <String fx:value="图的单源最短路径" />
-                  <String fx:value="深度优先遍历" />
-                  <String fx:value="广度优先遍历" />
               </FXCollections>
           </items>
       </ChoiceBox>

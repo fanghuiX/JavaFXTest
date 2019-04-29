@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 import javafx.application.Platform;
+import javafx.scene.control.MenuItem;
+
 import sample.DemoTest.Input;
 import sample.SortCompare.SortCompare;
 import sample.inputTree.Defaultui;
@@ -14,7 +16,7 @@ import sample.inputTree.Searchtree;
 import sample.MenuItemEvent.SJGJS.Gnjs;
 import sample.HeapSort.Main;
 import sample.HeapSort.newThread;
-import javafx.scene.control.MenuItem;
+import sample.MazeDFS.AlgoVisualizer;
 
 import java.io.File;
 import java.net.URL;
@@ -186,12 +188,21 @@ public class MainUI implements Initializable {
                  Number old_val,Number new_val) -> {
                     System.out.println("choiceg index:"+new_val);
                     gindex = new_val.intValue();
-                    Defaultui dui = new Defaultui();
-                    try{
-                        dui.start(new Stage());
+                    if(gindex == 5) {
+                        String mazeFile = "src/sample/MazeDFS/maze_101_101.txt";
+                        AlgoVisualizer vis = new AlgoVisualizer(mazeFile);
                     }
-                    catch (Exception e){
-                        System.out.println(e.getMessage());
+                    else if(gindex == 6) {
+                        String mazeFile = "src/sample/MazeDFS/maze_101_101.txt";
+                        new sample.MazeBFS.AlgoVisualizer(mazeFile);
+                    }
+                    else {
+                        Defaultui dui = new Defaultui();
+                        try {
+                            dui.start(new Stage());
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
                     }
                 }
         );
