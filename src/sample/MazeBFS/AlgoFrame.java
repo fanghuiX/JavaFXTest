@@ -20,7 +20,7 @@ public class AlgoFrame extends JFrame{
         pack();
 
         /*setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
-        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         setVisible(true);

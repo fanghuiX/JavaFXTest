@@ -7,6 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class HeapSort extends JPanel {
     private int height = 0;
@@ -67,6 +70,7 @@ public class HeapSort extends JPanel {
         codes[4]=new Code(1100,720,490,30,"                 swap(a[k],min(a[k*2],a[k*2+1]));");
         codes[5]=new Code(1100,750,490,30,"                 k = k*2 or k*2+1;");
         codes[6]=new Code(1100,780,490,30,"");
+
         quick =new JButton("加速");
         quick.setBounds(600,825,80,40);
         quick.setContentAreaFilled(false);
