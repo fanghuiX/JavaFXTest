@@ -6,9 +6,55 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.GraphViz.Settings"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="459.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GraphViz.Settings">
+   <children>
+      <Label layoutX="14.0" layoutY="29.0" text="节点颜色：" />
+      <Label layoutX="14.0" layoutY="98.0" text="节电形状：" />
+      <Label layoutX="20.0" layoutY="167.0" text="颜色填充：" />
+      <Button layoutX="227.0" layoutY="403.0" mnemonicParsing="false" onMouseClicked="#click" prefHeight="36.0" prefWidth="147.0" text="确定" />
+      <RadioButton layoutX="40.0" layoutY="62.0" mnemonicParsing="false" text="红">
+         <toggleGroup>
+            <ToggleGroup fx:id="color" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="117.0" layoutY="62.0" mnemonicParsing="false" text="橙" toggleGroup="$color" />
+      <RadioButton layoutX="197.0" layoutY="62.0" mnemonicParsing="false" text="黄" toggleGroup="$color" />
+      <RadioButton layoutX="275.0" layoutY="62.0" mnemonicParsing="false" text="绿" toggleGroup="$color" />
+      <RadioButton layoutX="359.0" layoutY="62.0" mnemonicParsing="false" selected="true" text="蓝" toggleGroup="$color" />
+      <RadioButton layoutX="433.0" layoutY="62.0" mnemonicParsing="false" text="靛" toggleGroup="$color" />
+      <RadioButton layoutX="519.0" layoutY="62.0" mnemonicParsing="false" text="紫" toggleGroup="$color" />
+      <RadioButton layoutX="117.0" layoutY="130.0" mnemonicParsing="false" text="三角形">
+         <toggleGroup>
+            <ToggleGroup fx:id="shape" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="239.0" layoutY="130.0" mnemonicParsing="false" text="矩形" toggleGroup="$shape" />
+      <RadioButton layoutX="359.0" layoutY="130.0" mnemonicParsing="false" text="五边形" toggleGroup="$shape" />
+      <RadioButton layoutX="468.0" layoutY="130.0" mnemonicParsing="false" text="六边形" toggleGroup="$shape" />
+      <RadioButton layoutX="40.0" layoutY="130.0" mnemonicParsing="false" selected="true" text="圆" toggleGroup="$shape" />
+      <RadioButton layoutX="40.0" layoutY="206.0" mnemonicParsing="false" selected="true" text="是">
+         <toggleGroup>
+            <ToggleGroup fx:id="filled" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="117.0" layoutY="206.0" mnemonicParsing="false" text="否" toggleGroup="$filled" />
+      <Label layoutX="20.0" layoutY="318.0" text="线条箭头：" />
+      <Label layoutX="20.0" layoutY="246.0" text="线条颜色：" />
+      <RadioButton layoutX="40.0" layoutY="279.0" mnemonicParsing="false" selected="true" text="黑">
+         <toggleGroup>
+            <ToggleGroup fx:id="linecolor" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="117.0" layoutY="279.0" mnemonicParsing="false" text="红" toggleGroup="$linecolor" />
+      <RadioButton layoutX="202.0" layoutY="277.0" mnemonicParsing="false" text="黄" toggleGroup="$linecolor" />
+      <RadioButton layoutX="282.0" layoutY="279.0" mnemonicParsing="false" text="蓝" toggleGroup="$linecolor" />
+      <RadioButton layoutX="359.0" layoutY="279.0" mnemonicParsing="false" text="青" toggleGroup="$linecolor" />
+      <RadioButton layoutX="40.0" layoutY="356.0" mnemonicParsing="false" selected="true" text="无箭头">
+         <toggleGroup>
+            <ToggleGroup fx:id="head" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="157.0" layoutY="354.0" mnemonicParsing="false" text="单向箭头" toggleGroup="$head" />
+      <RadioButton layoutX="304.0" layoutY="354.0" mnemonicParsing="false" text="双向箭头" toggleGroup="$head" />
+   </children>
 </AnchorPane>

@@ -32,11 +32,22 @@ public class CreateGraph{
     }
 
     public void start(String[] nodes,String[] bt){
-
+        bean ss = new bean();
         Graphviz gv = new Graphviz();
         //定义每个节点的style
-        String nodesty = "[shape = polygon, sides = 16, peripheries = 1, color = lightblue, style = filled]";
-        String linesty = "[dir=\"none\"]";
+        //颜色：red orange yellow green lightblue cyan purple
+        String color = ss.getGcolor();
+        System.out.println(ss.getGcolor());
+        //形状：33 3 4 5 6
+        String sides = ss.getGsides();
+        //填充：filled rounded
+        String style = ss.getGstyle();
+        //线条颜色：black red yellow lightblue cyan
+        String lightcolor = ss.getGlightcolor();
+        //箭头：none forward both
+        String head = ss.getGhead();
+        String nodesty = "[shape = polygon, sides = "+sides+", peripheries = 1, color = "+color+", style = "+style+"]";
+        String linesty = "[dir = "+head+", color = "+lightcolor+"]";
 
         gv.addln(gv.start_graph());//SATRT
         gv.addln("size =\"8,8\";");

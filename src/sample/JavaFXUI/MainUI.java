@@ -17,6 +17,7 @@ import sample.MenuItemEvent.SJGJS.Gnjs;
 import sample.HeapSort.Main;
 import sample.HeapSort.newThread;
 import sample.MazeDFS.AlgoVisualizer;
+import sample.GraphViz.showSettings;
 
 import java.io.File;
 import java.net.URL;
@@ -41,7 +42,7 @@ public class MainUI implements Initializable {
     public static int gindex;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+        public void initialize(URL location, ResourceBundle resources) {
         String sdgnhtml = new File("src/sample/MenuItemEvent/SJGJS/sdgn.html").getAbsolutePath().replace('\\','/');;
         //响应 MenuItem
         try {
@@ -87,7 +88,14 @@ public class MainUI implements Initializable {
         }
         try {
             about.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "关于本软件", "https://www.baidu.com/s?wd=about"); });
-            setting.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "设置", "https://www.baidu.com/s?wd=setting"); });
+            setting.setOnAction(e -> {
+                try {
+                    showSettings sss = new showSettings();
+                    sss.show(new Stage());
+                }catch (Exception ee) {
+                    System.out.println(ee.getMessage());
+                }
+            });
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }

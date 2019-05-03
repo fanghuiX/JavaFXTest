@@ -109,7 +109,7 @@
           </Menu>
             <Menu mnemonicParsing="false" text="设置">
                <items>
-                  <MenuItem fx:id="setting" mnemonicParsing="false" text="设置节点属性" />
+                  <MenuItem fx:id="setting" mnemonicParsing="false" text="设置树的可视化节点属性" />
                </items>
             </Menu>
         </menus>
