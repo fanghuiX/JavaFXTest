@@ -1,6 +1,5 @@
 package sample.SortCompare;
 
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +13,7 @@ import sample.SortCreate.*;
 
 import java.util.ArrayList;
 
-public class SortCompare extends Application {
+public class SortCompare{
     @FXML
     private TextArea numtext;
     @FXML
@@ -22,7 +21,6 @@ public class SortCompare extends Application {
     @FXML
     private  RadioButton updown;
 
-    @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/sample/sortCompare/sortCompare.fxml"));
         primaryStage.setTitle("排序比较");

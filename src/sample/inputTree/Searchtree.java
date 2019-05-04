@@ -1,6 +1,5 @@
 package sample.inputTree;
 
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +8,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class Searchtree extends Application {
+public class Searchtree{
     @FXML
     private TextField tf;
     @FXML
@@ -29,7 +28,6 @@ public class Searchtree extends Application {
         return instance;
     }
 
-    @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/sample/inputTree/searchtree.fxml"));
         primaryStage.setTitle("请输入数据");

@@ -1,6 +1,5 @@
 package sample.JavaFXUI;
 
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -13,9 +12,8 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
-public class showImage extends Application {
+public class showImage{
 
-    @Override
     public void start(Stage primaryStage) {
         ImageView imv = new ImageView();
         //错误写法，因为会预加载好图片，不会显示出处理后得到的图片，所以只会显示上一次得到的结果 

@@ -185,10 +185,10 @@ public class HeapSort extends JPanel {
         a[i]=a[j];
         a[j]=tmp;
     }
-    public void Init() {
+    public void Init(int[] num) {
         initHeapNode();
-        for(int i=1;i<=N;i++) {
-            a[i] = (int) (Math.random() * 100)+1;
+        for(int i=1;i<=num.length;i++) {
+            a[i] = num[i-1];
             a2[i]=a[i];
             heapNode[i].setValue(a[i]);
         }

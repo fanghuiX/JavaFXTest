@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="225.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HeapSort.inputNode">
+   <children>
+      <Label layoutX="22.0" layoutY="30.0" text="请输入深度为4的满二叉树：" />
+      <TextField fx:id="tf" layoutX="22.0" layoutY="77.0" prefHeight="82.0" prefWidth="561.0" />
+      <Button fx:id="random" onMouseClicked="#clickrand" layoutX="500.0" layoutY="24.0" mnemonicParsing="false" text="随机" />
+      <Button fx:id="confirm" onMouseClicked="#clickok" layoutX="261.0" layoutY="175.0" mnemonicParsing="false" text="确定" />
+   </children>
+</AnchorPane>

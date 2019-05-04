@@ -12,7 +12,7 @@ public class Main extends JFrame{
     private static HeapSort heapSort;
     private static JComponent nowSorting;
     public boolean running = true;
-    public Main(int height, int width) {
+    public Main(int height, int width, int[] num) {
         this.height = height;
         this.width = width;
         nowSorting = heapSort;
@@ -39,7 +39,7 @@ public class Main extends JFrame{
         getContentPane().add(heapSort);
         heapSort.setVisible(true);
         setVisible(true);
-        heapSort.Init();
+        heapSort.Init(num);
         heapSort.sort();
     }
     /*public static void main(String[] args) {

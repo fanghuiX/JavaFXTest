@@ -1,6 +1,5 @@
 package sample.DemoTest;
 
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +14,7 @@ import sample.SortCreate.*;
 import java.awt.*;
 import java.util.Random;
 
-public class Input extends Application {
+public class Input {
 
     @FXML
     public TextArea inputta;
@@ -35,7 +34,6 @@ public class Input extends Application {
         inputta.setText(sb1.toString());
     }
 
-    @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/sample/DemoTest/input.fxml"));
         primaryStage.setTitle("请输入数据");

@@ -18,6 +18,7 @@ import sample.HeapSort.Main;
 import sample.HeapSort.newThread;
 import sample.MazeDFS.AlgoVisualizer;
 import sample.GraphViz.showSettings;
+import sample.HeapSort.inputNode;
 
 import java.io.File;
 import java.net.URL;
@@ -141,8 +142,11 @@ public class MainUI implements Initializable {
                     // System.out.println(th.getName());
                     graphindex = new_val.intValue();
                     if(graphindex == 1) {
-                        newThread newthread = new newThread();
-                        newthread.start();
+                        try{
+                        inputNode.getInstance().startnode(new Stage());
+                        } catch (Exception e) {
+
+                        }
                     }
                     else {
                         Defaultui dui = new Defaultui();

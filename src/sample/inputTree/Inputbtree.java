@@ -1,6 +1,5 @@
 package sample.inputTree;
 
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +13,7 @@ import sample.JavaFXUI.MainUI;
 import sample.JavaFXUI.showImage;
 
 
-public class Inputbtree extends Application {
+public class Inputbtree{
     @FXML
     private TextArea btreeta;
     @FXML
@@ -35,7 +34,6 @@ public class Inputbtree extends Application {
         return itstance;
     }
 
-    @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/sample/inputTree/inputbtree.fxml"));
         primaryStage.setTitle("请输入数据");
