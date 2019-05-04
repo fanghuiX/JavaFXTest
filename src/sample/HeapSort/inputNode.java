@@ -33,7 +33,7 @@ public class inputNode{
     public void startnode(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/sample/HeapSort/heapsort.fxml"));
         primaryStage.setTitle("请输入数据");
-        primaryStage.setScene(new Scene(root, 600, 200));
+        primaryStage.setScene(new Scene(root, 500, 160));
         primaryStage.show();
         primaryStage.setResizable(false);
     }
