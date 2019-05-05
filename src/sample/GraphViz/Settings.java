@@ -33,13 +33,17 @@ public class Settings implements Initializable {
             public void changed(ObservableValue<? extends Toggle> changed, Toggle oldVal, Toggle newVal)
             {
                 RadioButton temp=(RadioButton)newVal;
-                System.out.println(temp.getText());
+                //System.out.println(temp.getText());
                 for(int i=0;i<nodecolor.length;i++){
                     if(nodecolor[i][0].equals(temp.getText())) {
-                        b.setGcolor(nodecolor[i][1]);
+                        try{
+                            b.setGcolor(nodecolor[i][1]);
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
                     }
                 }
-                System.out.println(b.getGcolor());
+                //System.out.println(b.getGcolor());
             }
         });
         String nodeshape[][] = {{"圆","33"},{"三角形","3"},{"矩形","4"},{"五边形","5"},{"六边形","6"}};
@@ -48,13 +52,17 @@ public class Settings implements Initializable {
             public void changed(ObservableValue<? extends Toggle> changed, Toggle oldVal, Toggle newVal)
             {
                 RadioButton temp=(RadioButton)newVal;
-                System.out.println(temp.getText());
+                //System.out.println(temp.getText());
                 for(int i=0;i<nodeshape.length;i++){
                     if(nodeshape[i][0].equals(temp.getText())) {
-                        b.setGsides(nodeshape[i][1]);
+                        try{
+                            b.setGsides(nodeshape[i][1]);
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
                     }
                 }
-                System.out.println(b.getGsides());
+                //System.out.println(b.getGsides());
             }
         });
         String nodefilled[][] = {{"是","filled"},{"否","rounded"}};
@@ -63,13 +71,17 @@ public class Settings implements Initializable {
             public void changed(ObservableValue<? extends Toggle> changed, Toggle oldVal, Toggle newVal)
             {
                 RadioButton temp=(RadioButton)newVal;
-                System.out.println(temp.getText());
+                //System.out.println(temp.getText());
                 for(int i=0;i<nodefilled.length;i++){
                     if(nodefilled[i][0].equals(temp.getText())) {
-                        b.setGstyle(nodefilled[i][1]);
+                        try{
+                            b.setGstyle(nodefilled[i][1]);
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
                     }
                 }
-                System.out.println(b.getGstyle());
+                //System.out.println(b.getGstyle());
             }
         });
         String nodelinecolor[][] = {{"黑","black"},{"红","red"},{"黄","yellow"},{"蓝","lightblue"},{"青","cyan"}};
@@ -78,13 +90,17 @@ public class Settings implements Initializable {
             public void changed(ObservableValue<? extends Toggle> changed, Toggle oldVal, Toggle newVal)
             {
                 RadioButton temp=(RadioButton)newVal;
-                System.out.println(temp.getText());
+                //System.out.println(temp.getText());
                 for(int i=0;i<nodelinecolor.length;i++){
                     if(nodelinecolor[i][0].equals(temp.getText())) {
-                        b.setGlightcolor(nodelinecolor[i][1]);
+                        try{
+                            b.setGlightcolor(nodelinecolor[i][1]);
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
                     }
                 }
-                System.out.println(b.getGlightcolor());
+                //System.out.println(b.getGlightcolor());
             }
         });
         String nodelinehead[][] = {{"无箭头","none"},{"单向箭头","forward"},{"双向箭头","both"}};
@@ -93,13 +109,17 @@ public class Settings implements Initializable {
             public void changed(ObservableValue<? extends Toggle> changed, Toggle oldVal, Toggle newVal)
             {
                 RadioButton temp=(RadioButton)newVal;
-                System.out.println(temp.getText());
+                //System.out.println(temp.getText());
                 for(int i=0;i<nodelinehead.length;i++){
                     if(nodelinehead[i][0].equals(temp.getText())) {
-                        b.setGhead(nodelinehead[i][1]);
+                        try{
+                            b.setGhead(nodelinehead[i][1]);
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
                     }
                 }
-                System.out.println(b.getGhead());
+                //System.out.println(b.getGhead());
             }
         });
     }

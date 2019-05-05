@@ -1,50 +1,75 @@
 package sample.GraphViz;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.Properties;
+
 public class bean {
-    private String gcolor = "lightblue";
-    private String gsides = "33";
-    private String gstyle = "filled";
-    private String glightcolor = "black";
-    private String ghead = "none";
 
-    public String getGcolor() {
-        return gcolor;
+    public String getGcolor() throws Exception{
+        return getvalue("nodecolor");
     }
 
-    public String getGsides() {
-        return gsides;
+    public String getGsides() throws Exception {
+        return getvalue("nodeshape");
     }
 
-    public String getGstyle() {
-        return gstyle;
+    public String getGstyle() throws Exception {
+        return getvalue("nodestyle");
     }
 
-    public String getGlightcolor() {
-        return glightcolor;
+    public String getGlightcolor() throws Exception {
+        return getvalue("linecolor");
     }
 
-    public String getGhead() {
-        return ghead;
+    public String getGhead() throws Exception {
+        return getvalue("linehead");
     }
 
-    public void setGcolor(String gcolor) {
-        this.gcolor = gcolor;
+    public void setGcolor(String gcolor) throws Exception {
+        setvalue("nodecolor",gcolor);
     }
 
-    public void setGsides(String gsides) {
-        this.gsides = gsides;
+    public void setGsides(String gsides) throws Exception {
+        setvalue("nodeshape",gsides);
     }
 
-    public void setGstyle(String gstyle) {
-        this.gstyle = gstyle;
+    public void setGstyle(String gstyle) throws Exception {
+        setvalue("nodestyle",gstyle);
     }
 
-    public void setGlightcolor(String glightcolor) {
-        this.glightcolor = glightcolor;
+    public void setGlightcolor(String glightcolor) throws Exception {
+        setvalue("linecolor",glightcolor);
     }
 
-    public void setGhead(String ghead) {
-        this.ghead = ghead;
+    public void setGhead(String ghead) throws Exception {
+        setvalue("linehead",ghead);
     }
 
+
+    /*public static void main(String[] args) throws Exception{
+        setvalue("nodecolor","yellow");
+        System.out.println(getvalue("nodecolor"));
+    }*/
+
+    public static String getvalue(String key) throws Exception {
+        Properties props=new Properties();//使用Properties类来加载属性文件
+        FileInputStream iFile = new FileInputStream("src/sample/GraphViz/setting.properties");
+        props.load(iFile);
+        String str=props.getProperty(key);
+        iFile.close();
+        return str;
+    }
+
+    public static void setvalue(String key, String value) throws Exception {
+        Properties props=new Properties();//使用Properties类来加载属性文件
+        FileInputStream iFile = new FileInputStream("src/sample/GraphViz/setting.properties");
+        props.load(iFile);
+        props.setProperty(key,value);
+        FileOutputStream fos = new FileOutputStream("src/sample/GraphViz/setting.properties");
+        // 将Properties集合保存到流中
+        props.store(fos, "change  properties");
+        fos.close();
+        iFile.close();
+    }
 }

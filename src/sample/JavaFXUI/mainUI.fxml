@@ -163,7 +163,6 @@
                   <String fx:value="喷漆机器人" />
                   <String fx:value="迷宫寻路深度搜索" />
                   <String fx:value="迷宫寻路广度搜索" />
-                  <String fx:value="图的单源最短路径" />
               </FXCollections>
           </items>
       </ChoiceBox>

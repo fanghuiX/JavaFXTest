@@ -12,7 +12,6 @@ import sample.GraphViz.CreateGraph;
 import sample.JavaFXUI.MainUI;
 import sample.JavaFXUI.showImage;
 
-
 public class Inputbtree{
     @FXML
     private TextArea btreeta;
@@ -70,12 +69,8 @@ public class Inputbtree{
         catch (Exception e){
             System.out.println(e.getMessage());
         }
-        Stage stage = (Stage)btreeb.getScene().getWindow();
-        stage.hide();
-    }
-
-    public void btreetaclick(){
-        btreeta.setText("");
+        /*Stage stage = (Stage)btreeb.getScene().getWindow();
+        stage.hide();*/
     }
 
     public void viewclick(){
@@ -89,9 +84,5 @@ public class Inputbtree{
         else if(index == 4){
             tf.setText("A(B(D,E),C);F(G,H(I,J));K(L,M(O,P,Q),N)");
         }
-    }
-
-    public void dynclick(){
-
     }
 }

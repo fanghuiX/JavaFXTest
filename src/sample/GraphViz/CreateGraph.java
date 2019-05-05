@@ -1,8 +1,9 @@
 package sample.GraphViz;
 
 //import java.util.Scanner;
-import java.io.File;
 import sample.DataProcess.dataProcess;
+
+import java.io.File;
 
 public class CreateGraph{
     public static String[] nodes =null;
@@ -36,16 +37,24 @@ public class CreateGraph{
         Graphviz gv = new Graphviz();
         //定义每个节点的style
         //颜色：red orange yellow green lightblue cyan purple
-        String color = ss.getGcolor();
-        System.out.println(ss.getGcolor());
         //形状：33 3 4 5 6
-        String sides = ss.getGsides();
         //填充：filled rounded
-        String style = ss.getGstyle();
         //线条颜色：black red yellow lightblue cyan
-        String lightcolor = ss.getGlightcolor();
         //箭头：none forward both
-        String head = ss.getGhead();
+        String color = "lightblue";
+        String sides = "33";
+        String style = "filled";
+        String lightcolor = "black";
+        String head = "none";
+        try{
+            color = ss.getGcolor();
+            sides = ss.getGsides();
+            style = ss.getGstyle();
+            lightcolor = ss.getGlightcolor();
+            head = ss.getGhead();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         String nodesty = "[shape = polygon, sides = "+sides+", peripheries = 1, color = "+color+", style = "+style+"]";
         String linesty = "[dir = "+head+", color = "+lightcolor+"]";
 
@@ -61,7 +70,7 @@ public class CreateGraph{
         gv.addln(gv.end_graph());//END
         //节点之间的连接关系输出到控制台
         String dotSource = gv.getDotSource();
-        System.out.println(dotSource);
+        //System.out.println(dotSource);
         //输出什么格式的图片(gif,dot,fig,pdf,ps,svg,png,plain)
         String type = "png";
         //输出到文件夹以及命名

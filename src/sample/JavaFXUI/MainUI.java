@@ -49,41 +49,41 @@ public class MainUI implements Initializable {
         try {
             gnjs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "树的概念", "file:///"+sdgnhtml); });
             sdbsf.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "树的表示法", "https://www.baidu.com/s?wd=树的表示法"); });
-            ecs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "二叉树", "https://www.baidu.com/s?wd=二叉树"); });
-            hfms.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "哈夫曼树", "https://www.baidu.com/s?wd=哈夫曼树"); });
+            ecs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "二叉树", "https://baike.baidu.com/item/二叉树"); });
+            hfms.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "哈夫曼树", "https://baike.baidu.com/item/哈夫曼树"); });
             bs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "B-/B+树", "https://www.baidu.com/s?wd=B-/B+树"); });
-            hhs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "红黑树", "https://www.baidu.com/s?wd=红黑树"); });
+            hhs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "红黑树", "https://baike.baidu.com/item/红黑树"); });
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }
         try {
-            array.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "数组", "https://www.baidu.com/s?wd=数组"); });
-            stack.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "栈", "https://www.baidu.com/s?wd=栈"); });
-            queue.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "队列", "https://www.baidu.com/s?wd=队列"); });
-            linklist.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "链表", "https://www.baidu.com/s?wd=链表"); });
-            graph.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "图", "https://www.baidu.com/s?wd=图"); });
-            heap.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "堆", "https://www.baidu.com/s?wd=堆"); });
-            slb.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "散列表", "https://www.baidu.com/s?wd=散列表"); });
+            array.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "数组", "https://baike.baidu.com/item/数组"); });
+            stack.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "栈", "https://baike.baidu.com/item/栈"); });
+            queue.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "队列", "https://baike.baidu.com/item/队列"); });
+            linklist.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "链表", "https://baike.baidu.com/item/链表"); });
+            graph.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "图", "https://baike.baidu.com/item/图"); });
+            heap.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "堆", "https://baike.baidu.com/item/堆"); });
+            slb.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "散列表", "https://baike.baidu.com/item/散列表"); });
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }
         try {
-            select.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "选择排序", "https://www.baidu.com/s?wd=选择排序"); });
-            bubble.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "冒泡排序", "https://www.baidu.com/s?wd=冒泡排序"); });
-            quick.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "快速排序", "https://www.baidu.com/s?wd=快速排序"); });
-            insert.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "直接插入排序", "https://www.baidu.com/s?wd=直接插入排序"); });
-            shell.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "希尔排序", "https://www.baidu.com/s?wd=希尔排序"); });
-            jspx.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "基数排序", "https://www.baidu.com/s?wd=基数排序"); });
-            heapsort.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "堆排序", "https://www.baidu.com/s?wd=堆排序"); });
-            merge.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "归并排序", "https://www.baidu.com/s?wd=归并排序"); });
+            select.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "选择排序", "https://baike.baidu.com/item/选择排序"); });
+            bubble.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "冒泡排序", "https://baike.baidu.com/item/冒泡排序"); });
+            quick.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "快速排序", "https://baike.baidu.com/item/快速排序"); });
+            insert.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "直接插入排序", "https://baike.baidu.com/item/直接插入排序"); });
+            shell.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "希尔排序", "https://baike.baidu.com/item/希尔排序"); });
+            jspx.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "基数排序", "https://baike.baidu.com/item/基数排序"); });
+            heapsort.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "堆排序", "https://baike.baidu.com/item/堆排序"); });
+            merge.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "归并排序", "https://baike.baidu.com/item/归并排序"); });
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }
         try {
             maze.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "迷宫寻路", "https://www.baidu.com/s?wd=迷宫寻路算法"); });
             dxbx.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "电线布线", "https://www.baidu.com/s?wd=电线布线算法"); });
-            deepsearch.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "深度优先搜索", "https://www.baidu.com/s?wd=深度优先搜索"); });
-            boardsearch.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "广度优先搜索", "https://www.baidu.com/s?wd=广度优先搜索"); });
+            deepsearch.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "深度优先搜索", "https://baike.baidu.com/item/深度优先搜索"); });
+            boardsearch.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "广度优先搜索", "https://baike.baidu.com/item/广度优先搜索"); });
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }
