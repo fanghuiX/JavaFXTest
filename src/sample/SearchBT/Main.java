@@ -2,8 +2,6 @@ package sample.SearchBT;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class Main extends JFrame{
     private int height, width;
@@ -32,7 +30,7 @@ public class Main extends JFrame{
         searchbt.Init();
         searchbt.insert();
     }
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         new Main(768, 1366);
-    }
+    }*/
 }
