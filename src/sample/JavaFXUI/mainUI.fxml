@@ -114,10 +114,10 @@
             </Menu>
         </menus>
       </MenuBar>
-       <ChoiceBox fx:id="choicetree" layoutX="32.0" layoutY="70.0" prefHeight="58.0" prefWidth="122.0" value="树的可视化">
+       <ChoiceBox fx:id="choicetree" layoutX="32.0" layoutY="70.0" prefHeight="58.0" prefWidth="122.0" value="树结构可视化">
            <items>
                <FXCollections fx:factory="observableArrayList">
-                   <String fx:value="树的可视化" />
+                   <String fx:value="树结构可视化" />
                    <String fx:value="树" />
                    <String fx:value="二叉树" />
                    <String fx:value="线索二叉树" />
@@ -125,10 +125,10 @@
                </FXCollections>
            </items>
        </ChoiceBox>
-       <ChoiceBox fx:id="choicegraph" layoutX="32.0" layoutY="147.0" prefHeight="58.0" prefWidth="122.0" value="树结构可视化">
+       <ChoiceBox fx:id="choicegraph" layoutX="32.0" layoutY="147.0" prefHeight="58.0" prefWidth="122.0" value="树结构算法可视化">
            <items>
            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="树结构可视化" />
+               <String fx:value="树结构算法可视化" />
                <String fx:value="堆排序" />
                <String fx:value="B-树" />
                <String fx:value="B+树" />
@@ -137,10 +137,10 @@
            </FXCollections>
            </items>
        </ChoiceBox>
-       <ChoiceBox fx:id="choicesort" layoutX="32.0" layoutY="226.0" prefHeight="58.0" prefWidth="122.0" value="排序算法的可视化">
+       <ChoiceBox fx:id="choicesort" layoutX="32.0" layoutY="226.0" prefHeight="58.0" prefWidth="122.0" value="排序算法可视化">
            <items>
                <FXCollections fx:factory="observableArrayList">
-                   <String fx:value="排序算法的可视化" />
+                   <String fx:value="排序算法可视化" />
                    <String fx:value="选择排序" />
                    <String fx:value="冒泡排序" />
                    <String fx:value="快速排序" />
@@ -153,12 +153,10 @@
                </FXCollections>
            </items>
        </ChoiceBox>
-      <ChoiceBox fx:id="choiceg" layoutX="32.0" layoutY="306.0" prefHeight="58.0" prefWidth="122.0" value="算法可视化">
+      <ChoiceBox fx:id="choiceg" layoutX="32.0" layoutY="306.0" prefHeight="58.0" prefWidth="122.0" value="其他算法可视化">
           <items>
               <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="算法可视化" />
-                  <String fx:value="树深度优先遍历" />
-                  <String fx:value="树广度优先遍历" />
+                  <String fx:value="其他算法可视化" />
                   <String fx:value="电线布线" />
                   <String fx:value="喷漆机器人" />
                   <String fx:value="迷宫寻路深度搜索" />

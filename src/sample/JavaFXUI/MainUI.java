@@ -203,11 +203,11 @@ public class MainUI implements Initializable {
                  Number old_val,Number new_val) -> {
                     System.out.println("choiceg index:"+new_val);
                     gindex = new_val.intValue();
-                    if(gindex == 5) {
+                    if(gindex == 3) {
                         String mazeFile = "src/sample/MazeDFS/maze_101_101.txt";
                         AlgoVisualizer vis = new AlgoVisualizer(mazeFile);
                     }
-                    else if(gindex == 6) {
+                    else if(gindex == 4) {
                         String mazeFile = "src/sample/MazeDFS/maze_101_101.txt";
                         new sample.MazeBFS.AlgoVisualizer(mazeFile);
                     }
