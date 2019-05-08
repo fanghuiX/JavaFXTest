@@ -9,6 +9,8 @@ public class CreateGraph{
     public static String[] nodes =null;
     public static String[] bt = null;
 
+    public static String[] pre = null;
+    public static String[] post = null;
     //选择要创建哪一种图形
     public void choice(int flag,String str){
         if(flag == 1){
@@ -20,8 +22,8 @@ public class CreateGraph{
             bt = dataProcess.createBTree(str);
         }
         else if(flag == 3){
-            nodes = dataProcess.getSTNodesvalue(str);
-            bt = dataProcess.createSTree(str);
+            /*nodes = dataProcess.getSTNodesvalue(str);
+            bt = dataProcess.createSTree(str);*/
         }
         else if(flag == 4){
             nodes = dataProcess.getTsNodesvalue(str);
@@ -30,6 +32,13 @@ public class CreateGraph{
         else{
             System.out.println("input error!");
         }
+    }
+
+    public void getstr(String str,String flag){
+        nodes = dataProcess.getSTNodesvalue(str);
+        bt = dataProcess.getCom(str);
+        pre = dataProcess.getPre(str,flag);
+        post = dataProcess.getPost(str,flag);
     }
 
     public void start(String[] nodes,String[] bt){
@@ -85,17 +94,35 @@ public class CreateGraph{
      * convert to image and store the image in the file system.
      */
     @SuppressWarnings("unused")
-    public void start2(){
-        //String input = dir + "/sample/simple.dot";
-        String input = "c:/eclipse.ws/graphviz-java-api/sample/simple.dot";    // Windows
-
+    public void start2(String[] nodes,String[] bt,String[] pre,String[] post){
         Graphviz gv = new Graphviz();
-        gv.readSource(input);
-        System.out.println(gv.getDotSource());
 
-        String type = "gif";
-        File out = new File("C:/Users/fanghui/Desktop/GraphTest/simple." + type);   // Linux
-        //File out = new File("c:/eclipse.ws/graphviz-java-api/tmp/simple." + type);   // Windows
+        gv.addln(gv.start_graph());//SATRT
+        gv.addln("node [shape = record];");
+        gv.addln("edge[decorate = true];");
+        //设置节点的style
+        for(int i=0;i<nodes.length;i++){
+            gv.addln(nodes[i]+" "+"[label = \"<f0> |<f1>"+nodes[i]+"|<f2>\"];");
+        }
+        for(int i=0;i<bt.length;i++){
+            gv.addln(bt[i]+" "+"[dir = none, weight = 8]");
+        }
+        for(int i=0;i<pre.length;i++){
+            gv.addln(pre[i]+" "+"[dir = forward, style = dotted, weight = 1, constraint = false, arrowhead = empty]");
+        }
+        for(int i=0;i<post.length;i++){
+            gv.addln(post[i]+" "+"[dir = forward, weight = 1, constraint = false, arrowhead = open]");
+        }
+        gv.addln(gv.end_graph());//END
+        //节点之间的连接关系输出到控制台
+        String dotSource = gv.getDotSource();
+        System.out.println(dotSource);
+        //输出什么格式的图片(gif,dot,fig,pdf,ps,svg,png,plain)
+        String type = "png";
+        //输出到文件夹以及命名
+        File out = new File("src/sample/JavaFXUI/out.png");
+        //File out = new File("c:/eclipse.ws/graphviz-java-api/out." + type);    // Windows
+        //System.out.println(out.getAbsolutePath());
         gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
     }
 

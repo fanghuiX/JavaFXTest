@@ -98,15 +98,131 @@ public class dataProcess {
     //线索二叉树
     public static String[] getSTNodesvalue(String str){
         ArrayList<String> list = new ArrayList<String>();
-
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i) != '#'){
+                list.add(str.charAt(i)+"");
+            }
+        }
         String[] string = new String[list.size()];
         list.toArray(string);
         return string;
     }
-    public static String[] createSTree(String str){
+    public static String[] getCom(String str){
         ArrayList<String> list = new ArrayList<String>();
+        for(int i=0;i<=(str.length()/2);i++){
+            if((2*i+1) < str.length() && str.charAt(i)!='#' && str.charAt(2*i+1)!='#'){
+                list.add(str.charAt(i)+":f1 -> "+str.charAt(2*i+1)+":f1");
+            }
 
-        String[] string = new String[list.size()];
+            if((2*i+2) < str.length() && str.charAt(i)!='#' && str.charAt(2*i+2)!='#'){
+                list.add(str.charAt(i)+":f1 -> "+str.charAt(2*i+2)+":f1");
+            }
+        }
+        String string[] = new String[list.size()];
+        list.toArray(string);
+        return string;
+    }
+    public static String[] getPre(String str,String flag){
+        ArrayList<String> list = new ArrayList<String>();
+        BTree btree = new BTree(null);
+        String[] test = new String[str.length()];
+        for(int i=0;i<str.length();i++){
+            test[i] = ""+str.charAt(i);
+        }
+        btree.CreateTree(test);
+        String strnode = "";
+        if(flag == "pre"){
+            btree.preOrder(btree.getRoot());
+            strnode = btree.prelist.toString();
+        }
+        if(flag == "in"){
+            btree.inOrder(btree.getRoot());
+            strnode = btree.inlist.toString();
+        }
+        if(flag == "post"){
+            btree.postOrder(btree.getRoot());
+            strnode = btree.postlist.toString();
+        }
+        //System.out.println(strnode);
+        strnode = strnode.replace("#","");
+        strnode = strnode.replace(", ","");
+        strnode = strnode.replace("[","");
+        strnode = strnode.replace("]","");
+        String nodes[] = getSTNodesvalue(strnode);
+        for(int i=0;i<nodes.length-1;i++){
+            list.add(nodes[i+1]+":f0"+" -> "+nodes[i]+":f0");
+        }
+        String string[] = new String[list.size()];
+        list.toArray(string);
+        return string;
+    }
+    public static String[] getPost(String str,String flag){
+        ArrayList<String> list = new ArrayList<String>();
+        BTree btree = new BTree(null);
+        String[] test = new String[str.length()];
+        for(int i=0;i<str.length();i++){
+            test[i] = ""+str.charAt(i);
+        }
+        btree.CreateTree(test);
+        String strnode = "";
+        if(flag == "pre"){
+            btree.preOrder(btree.getRoot());
+            strnode = btree.prelist.toString();
+        }
+        if(flag == "in"){
+            btree.inOrder(btree.getRoot());
+            strnode = btree.inlist.toString();
+        }
+        if(flag == "post"){
+            btree.postOrder(btree.getRoot());
+            strnode = btree.postlist.toString();
+        }
+        //System.out.println(strnode);
+        strnode = strnode.replace("#","");
+        strnode = strnode.replace(", ","");
+        strnode = strnode.replace("[","");
+        strnode = strnode.replace("]","");
+        //System.out.println(strnode);
+        String gg[] = getgg(str);
+        String hh[] = gethh(strnode);
+        for(int i=0;i<hh.length;i++){
+            //System.out.println(hh[i]);
+            boolean temp = true;
+            for(int j=0;j<gg.length;j++){
+                if(hh[i].equals(gg[j])){
+                    temp = false;
+                    break;
+                }
+            }
+            if(temp){
+                list.add(hh[i].charAt(0)+":f2 -> "+hh[i].charAt(1)+":f0");
+            }
+        }
+        String string[] = new String[list.size()];
+        list.toArray(string);
+        return string;
+    }
+    public static String[] getgg(String str){
+        ArrayList<String> list = new ArrayList<String>();
+        for(int i=0;i<=(str.length()/2);i++){
+            if((2*i+1) < str.length() && str.charAt(i)!='#' && str.charAt(2*i+1)!='#'){
+                list.add(str.charAt(i)+""+str.charAt(2*i+1));
+            }
+
+            if((2*i+2) < str.length() && str.charAt(i)!='#' && str.charAt(2*i+2)!='#'){
+                list.add(str.charAt(i)+""+str.charAt(2*i+2));
+            }
+        }
+        String string[] = new String[list.size()];
+        list.toArray(string);
+        return string;
+    }
+    public static String[] gethh(String str){
+        ArrayList<String> list = new ArrayList<String>();
+        for(int i=0;i<str.length()-1;i++){
+            list.add(str.charAt(i)+""+str.charAt(i+1));
+        }
+        String string[] = new String[list.size()];
         list.toArray(string);
         return string;
     }
