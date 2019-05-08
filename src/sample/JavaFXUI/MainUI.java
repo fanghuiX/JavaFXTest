@@ -44,7 +44,8 @@ public class MainUI implements Initializable {
 
     @Override
         public void initialize(URL location, ResourceBundle resources) {
-        String sdgnhtml = new File("src/sample/MenuItemEvent/SJGJS/sdgn.html").getAbsolutePath().replace('\\','/');;
+        String sdgnhtml = new File("src/sample/MenuItemEvent/SJGJS/sdgn.html").getAbsolutePath().replace('\\','/');
+        String gybrjhtml = new File("src/sample/MenuItemEvent/GYBRJ/about.html").getAbsolutePath().replace('\\','/');
         //响应 MenuItem
         try {
             gnjs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "树的概念", "file:///"+sdgnhtml); });
@@ -88,7 +89,7 @@ public class MainUI implements Initializable {
             System.out.println(e.getMessage());
         }
         try {
-            about.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "关于本软件", "https://www.baidu.com/s?wd=about"); });
+            about.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "关于本软件", "file:///"+gybrjhtml); });
             setting.setOnAction(e -> {
                 try {
                     showSettings sss = new showSettings();
