@@ -22,7 +22,7 @@
       <RadioButton layoutX="275.0" layoutY="62.0" mnemonicParsing="false" text="绿" toggleGroup="$color" />
       <RadioButton layoutX="359.0" layoutY="62.0" mnemonicParsing="false" text="蓝" toggleGroup="$color" />
       <RadioButton layoutX="433.0" layoutY="62.0" mnemonicParsing="false" text="靛" toggleGroup="$color" />
-      <RadioButton layoutX="519.0" layoutY="62.0" mnemonicParsing="false" text="紫" toggleGroup="$color" />
+      <RadioButton layoutX="519.0" layoutY="62.0" mnemonicParsing="false" text="黑" toggleGroup="$color" />
       <RadioButton layoutX="117.0" layoutY="130.0" mnemonicParsing="false" text="三角形">
          <toggleGroup>
             <ToggleGroup fx:id="shape" />

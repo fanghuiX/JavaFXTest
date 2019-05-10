@@ -45,11 +45,12 @@ public class MainUI implements Initializable {
     @Override
         public void initialize(URL location, ResourceBundle resources) {
         String sdgnhtml = new File("src/sample/MenuItemEvent/SJGJS/sdgn.html").getAbsolutePath().replace('\\','/');
+        String sdbsfhtml = new File("src/sample/MenuItemEvent/SJGJS/SDBSF.html").getAbsolutePath().replace('\\','/');
         String gybrjhtml = new File("src/sample/MenuItemEvent/GYBRJ/about.html").getAbsolutePath().replace('\\','/');
         //响应 MenuItem
         try {
             gnjs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "树的概念", "file:///"+sdgnhtml); });
-            sdbsf.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "树的表示法", "https://www.baidu.com/s?wd=树的表示法"); });
+            sdbsf.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "树的表示法", "file:///"+sdbsfhtml); });
             ecs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "二叉树", "https://baike.baidu.com/item/二叉树"); });
             hfms.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "哈夫曼树", "https://baike.baidu.com/item/哈夫曼树"); });
             bs.setOnAction(e -> { Gnjs.getInstance().start(new Stage(), "B-/B+树", "https://www.baidu.com/s?wd=B-/B+树"); });

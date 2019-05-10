@@ -27,7 +27,7 @@ public class Settings implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String nodecolor[][] = {{"红","red"},{"橙","orange"},{"黄","yellow"},{"绿","green"},{"蓝","lightblue"},{"靛","cyan"},{"紫","purple"}};
+        String nodecolor[][] = {{"红","red"},{"橙","orange"},{"黄","yellow"},{"绿","green"},{"蓝","lightblue"},{"靛","cyan"},{"黑","black"}};
         color.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
             @Override
             public void changed(ObservableValue<? extends Toggle> changed, Toggle oldVal, Toggle newVal)
