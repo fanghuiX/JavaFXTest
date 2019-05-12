@@ -1,7 +1,7 @@
 package sample.HeapSort;
 
 public class newThread extends Thread{
-    public boolean running = true;
+    public static boolean running;
     public int num[];
     public boolean flag;
     public void run() {

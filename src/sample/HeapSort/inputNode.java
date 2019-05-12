@@ -71,6 +71,8 @@ public class inputNode{
         newThread nt = new newThread();
         nt.num = num;
         nt.flag = updown;
+        newThread.running = true;
         nt.start();
+        //newThread.running = false;
     }
 }
