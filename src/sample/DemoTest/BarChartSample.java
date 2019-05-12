@@ -2,6 +2,7 @@ package sample.DemoTest;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -9,17 +10,20 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import java.lang.Thread;
+
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 public class BarChartSample{
 
     public int count = 0;
     public int temp = 0;
+    public int speed = 1000;
 
     public void start(Stage stage,ArrayList<int[]> result,int[] num,String str,String time) {
         StringBuffer inidata = new StringBuffer();
@@ -49,6 +53,30 @@ public class BarChartSample{
         tf3.setPrefWidth(600);
         tf3.setLayoutX(140);
         tf3.setLayoutY(60);
+        Button quick = new Button("加速");
+        quick.setPrefWidth(80);
+        quick.setPrefHeight(30);
+        quick.setLayoutX(300);
+        quick.setLayoutY(610);
+        quick.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
+            @Override
+            public void handle(javafx.event.ActionEvent event) {
+                speed = speed/2;
+                System.out.println(speed);
+            }
+        });
+        Button slow = new Button("减速");
+        slow.setPrefWidth(80);
+        slow.setPrefHeight(30);
+        slow.setLayoutX(400);
+        slow.setLayoutY(610);
+        slow.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
+            @Override
+            public void handle(javafx.event.ActionEvent event) {
+                speed += 500;
+                System.out.println(speed);
+            }
+        });
         //设置label的属性
         ArrayList<Label> label = new ArrayList<Label>();
         label.add(lb1);label.add(lb3);label.add(lb4);
@@ -82,7 +110,7 @@ public class BarChartSample{
         }
         tf3.setText(sb.toString());
         root.getChildren().addAll(bc,lb1,lb3,lb4,tf1,tf2,tf3);
-        Scene scene  = new Scene(root,800,600);
+        Scene scene  = new Scene(root,800,610);
         stage.setScene(scene);
         stage.show();
         bc.getData().addAll(series);
@@ -95,9 +123,8 @@ public class BarChartSample{
 
         //实现变换
         Timeline tl = new Timeline();
-        tl.getKeyFrames().add(new KeyFrame(Duration.millis(1000),
+        tl.getKeyFrames().add(new KeyFrame(Duration.millis(speed),
                 event1  -> {
-
                     for(XYChart.Series<String,Number> s : bc.getData()){
                         for(XYChart.Data<String,Number> d : s.getData()){
                             d.setYValue(result.get(count)[temp]);

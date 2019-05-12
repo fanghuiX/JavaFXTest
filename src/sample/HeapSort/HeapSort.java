@@ -72,9 +72,8 @@ public class HeapSort extends JPanel {
         codes[6]=new Code(1100,780,490,30,"");
 
         quick =new JButton("加速");
-        quick.setBounds(600,825,80,40);
-        quick.setContentAreaFilled(false);
-        quick.setForeground(Color.white);
+        quick.setBounds(790,725,100,50);
+        quick.setForeground(Color.black);
         this.add(quick);
         quick.addActionListener(new ActionListener() {
             @Override
@@ -86,9 +85,8 @@ public class HeapSort extends JPanel {
             }
         });
         slow =new JButton("减速");
-        slow .setBounds(500,825,80,40);
-        slow .setContentAreaFilled(false);
-        slow.setForeground(Color.white);
+        slow .setBounds(670,725,100,50);
+        slow.setForeground(Color.black);
         this.add( slow );
         slow .addActionListener(new ActionListener() {
             @Override
@@ -100,9 +98,8 @@ public class HeapSort extends JPanel {
             }
         });
         pauseButton = new JButton("暂停");
-        pauseButton.setBounds(400,825,80,40);
-        pauseButton.setContentAreaFilled(false);
-        pauseButton.setForeground(Color.white);
+        pauseButton.setBounds(550,725,100,50);
+        pauseButton.setForeground(Color.black);
         this.add(pauseButton);
         pauseButton.addActionListener(new ActionListener() {
             @Override
@@ -118,9 +115,8 @@ public class HeapSort extends JPanel {
             }
         });
         start = new JButton("排序");
-        start.setBounds(300,825,80,40);
-        start.setContentAreaFilled(false);
-        start.setForeground(Color.white);
+        start.setBounds(430,725,100,50);
+        start.setForeground(Color.black);
         this.add(start);
         start.addActionListener(new ActionListener() {
             @Override
@@ -132,9 +128,8 @@ public class HeapSort extends JPanel {
             }
         });
         resetButton = new JButton("重置");
-        resetButton.setBounds(700,825,80,40);
-        resetButton.setContentAreaFilled(false);
-        resetButton.setForeground(Color.white);
+        resetButton.setBounds(910,725,100,50);
+        resetButton.setForeground(Color.black);
         this.add(resetButton);
         resetButton.addActionListener(new ActionListener() {
             @Override
@@ -160,12 +155,12 @@ public class HeapSort extends JPanel {
         }
         title.paintBar(gg);
         hint.paintBar(gg);
-        for(Code i:codes){
+        /*for(Code i:codes){
             i.paintBar(gg);
-        }
+        }*/
         Stroke s = gg.getStroke();
         gg.setColor(new Color(254,197,21));
-        gg.fillRect(1100,535,490,60);
+        gg.fillRect(1100,635,490,60);
         gg.setStroke(s);
 
         gg.setColor(Color.BLACK);
@@ -176,9 +171,9 @@ public class HeapSort extends JPanel {
         gg.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
         Font font1 = new Font("微软雅黑", Font.BOLD, 18);
         gg.setFont(font1);
-        gg.drawString("比较次数 :                     "+compareCount,1135,555);
-        gg.drawString("移动次数 :                     "+moveCount,1135,585);
-        gg.drawString("速度 : "+(70-speed/10),850,850);
+        gg.drawString("比较次数 :                     "+compareCount,1135,655);
+        gg.drawString("移动次数 :                     "+moveCount,1135,685);
+        gg.drawString("当前速度 : "+(70-speed/10),750,850);
     }
     public  void swap(int a [],int j,int i){
         int tmp = a[i];
@@ -192,9 +187,9 @@ public class HeapSort extends JPanel {
             a2[i]=a[i];
             heapNode[i].setValue(a[i]);
         }
-        title= new Code(1100,470,490,30,"堆排序");
+        title= new Code(1100,570,490,30,"堆排序");
         title.setColor(Code.BLUE);
-        hint= new Code(1100,500,490,30,"");
+        hint= new Code(1100,600,490,30,"");
         hint.setColor(Code.BLUE);
         compareCount=0;
         moveCount=0;
@@ -337,7 +332,7 @@ public class HeapSort extends JPanel {
                             }
                             hint.setStr("与子节点比较，若大于子节点中较小的一个，交换");
                             //比左子节点大， 与其交换下沉
-                            if (a[i * 2] < a[i * 2 + 1] && a[i] > a[i * 2]) {
+                            if (a[i * 2] > a[i * 2 + 1] && a[i] < a[i * 2]) {
                                 heapNode[i * 2 + 1].setColorOut(HeapNode.BLACK);
                                 heapNode[i * 2 + 1].setColorInner(HeapNode.WHITE);
                                 heapNode[i * 2 + 1].setColorV(HeapNode.BLACK);
@@ -403,7 +398,7 @@ public class HeapSort extends JPanel {
 
                             }
                             //比右子节点大， 与其交换下沉
-                            else if (a[i * 2] > a[i * 2 + 1] && a[i] > a[i * 2 + 1]) {
+                            else if (a[i * 2] < a[i * 2 + 1] && a[i] < a[i * 2 + 1]) {
                                 hint.setStr("与子节点比较，若大于子节点中较小的一个，交换");
                                 codes[3].setColor(Code.GLASSGREEN);
                                 heapNode[i * 2].setColorOut(HeapNode.BLACK);
@@ -507,7 +502,7 @@ public class HeapSort extends JPanel {
                             }
                         }
                         else if(i*2==length){
-                            if (a[i] > a[i * 2]) {
+                            if (a[i] < a[i * 2]) {
                                 hint.setStr("与子节点比较，若大于子节点中较小的一个，交换");
                                 codes[3].setColor(Code.BLACK);
                                 heapNode[i * 2].setColorOut(HeapNode.YELLOW2);
@@ -735,7 +730,7 @@ public class HeapSort extends JPanel {
                             }
 
                             //比左子节点大， 与其交换下沉
-                            if (a[i * 2] < a[i * 2 + 1] && a[i] > a[i * 2]) {
+                            if (a[i * 2] > a[i * 2 + 1] && a[i] < a[i * 2]) {
                                 hint.setStr("与子节点比较，若大于子节点中较小的一个，交换");
                                 heapNode[i * 2 + 1].setColorOut(HeapNode.BLACK);
                                 heapNode[i * 2 + 1].setColorInner(HeapNode.WHITE);
@@ -802,7 +797,7 @@ public class HeapSort extends JPanel {
 
                             }
                             //比右子节点大， 与其交换下沉
-                            else if (a[i * 2] >= a[i * 2 + 1] && a[i] > a[i * 2 + 1]) {
+                            else if (a[i * 2] <= a[i * 2 + 1] && a[i] < a[i * 2 + 1]) {
                                 hint.setStr("与子节点比较，若大于子节点中较小的一个，交换");
                                 codes[4].setColor(Code.GLASSGREEN);
                                 heapNode[i * 2].setColorOut(HeapNode.BLACK);
@@ -905,7 +900,7 @@ public class HeapSort extends JPanel {
                             }
                         }
                         else if(i*2==length){
-                            if (a[i] > a[i * 2]) {
+                            if (a[i] < a[i * 2]) {
                                 hint.setStr("与子节点比较，若大于子节点中较小的一个，交换");
                                 codes[4].setColor(Code.BLACK);
                                 heapNode[i * 2].setColorOut(HeapNode.YELLOW2);
