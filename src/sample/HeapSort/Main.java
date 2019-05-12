@@ -12,7 +12,8 @@ public class Main extends JFrame{
     private static HeapSort heapSort;
     private static JComponent nowSorting;
     public boolean running = true;
-    public Main(int height, int width, int[] num) {
+    public Main(int height, int width, int[] num, boolean flag) {
+        //System.out.println(flag);
         this.height = height;
         this.width = width;
         nowSorting = heapSort;
@@ -40,7 +41,7 @@ public class Main extends JFrame{
         heapSort.setVisible(true);
         setVisible(true);
         heapSort.Init(num);
-        heapSort.sort();
+        heapSort.sort(flag);
     }
     /*public static void main(String[] args) {
         new Main(900, 1600);

@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 public class inputNode{
@@ -15,7 +16,10 @@ public class inputNode{
     private Button random;
     @FXML
     private Button confirm;
+    @FXML
+    private ToggleGroup heap;
 
+    private boolean updown = true;
     //单例模式
     public static volatile inputNode instance;
     public inputNode(){}
@@ -50,6 +54,13 @@ public class inputNode{
         tf.setText(sb.toString());
     }
 
+    public void big(){
+        updown = false;
+    }
+    public void small(){
+        updown = true;
+    }
+
     public void clickok() {
         String str = tf.getText();
         String s[] = str.split(",");
@@ -59,6 +70,7 @@ public class inputNode{
         }
         newThread nt = new newThread();
         nt.num = num;
+        nt.flag = updown;
         nt.start();
     }
 }
