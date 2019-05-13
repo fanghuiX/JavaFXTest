@@ -10,8 +10,8 @@ public class searchBT  extends JPanel {
     private static int N = 15;
     private int width, height;
     private Main mainBoard = null;
-    private JTextField jTextField;
-    private JButton jButton, tip;
+    private JTextField jTextField, deleteText;
+    private JButton jButton, deleteButton, tip;
     private ArrayList<Integer> list = new ArrayList<Integer>();
     private int lx1[]={700,700,400,400,1000,1000,250,250,550,550,850,850,1150,1150};
     private int lx2[]={400,1000,250,550,850,1150,150,350,450,650,750,950,1050,1250};
@@ -33,11 +33,14 @@ public class searchBT  extends JPanel {
         setFocusable(true);
         //add文本框
         jTextField = new JTextField(10);
-        jTextField.setBounds(500, 650, 200, 40);
+        jTextField.setBounds(500, 600, 200, 40);
         this.add(jTextField);
-        //添加按钮
+        deleteText = new JTextField(10);
+        deleteText.setBounds(500, 650, 200, 40);
+        this.add(deleteText);
+        //添加插入按钮
         jButton = new JButton("插入");
-        jButton.setBounds(720,650, 100,40);
+        jButton.setBounds(720,600, 100,40);
         jButton.setContentAreaFilled(false);
         this.add(jButton);
         //响应插入
@@ -58,8 +61,33 @@ public class searchBT  extends JPanel {
                 }
             }
         });
+        //添加删除按钮
+        deleteButton = new JButton("删除");
+        deleteButton.setBounds(720,650, 100,40);
+        deleteButton.setContentAreaFilled(false);
+        this.add(deleteButton);
+        //响应删除
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(deleteText.getText().equals("")){
+                    JOptionPane.showMessageDialog(null, "请输入数据！", "提示", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else {
+                    System.out.println("delete " + deleteText.getText());
+                    String s = sb.toString().replace(deleteText.getText()+",","");
+                    sb = new StringBuffer(s);
+                    System.out.println(s);
+                    int mid[] = new dataProcess().getData(s);
+                    for(int i=0;i<num.length;i++){
+                        num[i] = mid[i];
+                    }
+                    Init();
+                }
+            }
+        });
         tip = new JButton("?");
-        tip.setBounds(830,650, 50,40);
+        tip.setBounds(830,600, 50,40);
         tip.setContentAreaFilled(false);
         this.add(tip);
         //响应插入
