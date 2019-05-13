@@ -16,7 +16,7 @@ public class dataProcess {
         }
         String s[] = str.split(",");
         int mid[] = new int[s.length];
-        for(int i=0;i<s.length;i++){
+        for(int i=0;i<(s.length>15 ? 15 : s.length);i++){
             mid[i] = Integer.parseInt(s[i]);
         }
         for(int i=0;i<mid.length;i++){

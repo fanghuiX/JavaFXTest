@@ -11,7 +11,7 @@ public class searchBT  extends JPanel {
     private int width, height;
     private Main mainBoard = null;
     private JTextField jTextField, deleteText;
-    private JButton jButton, deleteButton, tip;
+    private JButton jButton, deleteButton, randButton, clearButton, tip;
     private ArrayList<Integer> list = new ArrayList<Integer>();
     private int lx1[]={700,700,400,400,1000,1000,250,250,550,550,850,850,1150,1150};
     private int lx2[]={400,1000,250,550,850,1150,150,350,450,650,750,950,1050,1250};
@@ -52,7 +52,11 @@ public class searchBT  extends JPanel {
                 }
                 else {
                     System.out.println("insert " + jTextField.getText());
+                    if(sb.toString().equals(",")){
+                        sb = new StringBuffer("");
+                    }
                     sb.append(jTextField.getText()+",");
+                    System.out.println(sb.toString());
                     int mid[] = new dataProcess().getData(sb.toString());
                     for(int i=0;i<num.length;i++){
                         num[i] = mid[i];
@@ -78,12 +82,54 @@ public class searchBT  extends JPanel {
                     String s = sb.toString().replace(deleteText.getText()+",","");
                     sb = new StringBuffer(s);
                     System.out.println(s);
+                    if(s.length() == 0){
+                        s = ",";
+                    }
                     int mid[] = new dataProcess().getData(s);
                     for(int i=0;i<num.length;i++){
                         num[i] = mid[i];
                     }
                     Init();
                 }
+            }
+        });
+        //添加随机按钮
+        randButton = new JButton("随机");
+        randButton.setBounds(930,600, 100,40);
+        randButton.setContentAreaFilled(false);
+        this.add(randButton);
+        //响应删除
+        randButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("随机");
+                sb = new StringBuffer("");
+                for(int i=0;i<15;i++){
+                    sb.append((int)(Math.random()*200+1)+",");
+                }
+                int mid[] = new dataProcess().getData(sb.toString());
+                for(int i=0;i<num.length;i++){
+                    num[i] = mid[i];
+                }
+                Init();
+            }
+        });
+        //添加清空按钮
+        clearButton = new JButton("清空");
+        clearButton.setBounds(930,650, 100,40);
+        clearButton.setContentAreaFilled(false);
+        this.add(clearButton);
+        //响应删除
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("清空");
+                sb = new StringBuffer(",");
+                int mid[] = new dataProcess().getData(sb.toString());
+                for(int i=0;i<num.length;i++){
+                    num[i] = mid[i];
+                }
+                Init();
             }
         });
         tip = new JButton("?");
