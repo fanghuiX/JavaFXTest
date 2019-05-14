@@ -51,17 +51,30 @@ public class searchBT  extends JPanel {
                     JOptionPane.showMessageDialog(null, "请输入数据！", "提示", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else {
-                    System.out.println("insert " + jTextField.getText());
-                    if(sb.toString().equals(",")){
-                        sb = new StringBuffer("");
+                    boolean isexist = false;
+                    String[] str = sb.toString().split(",");
+                    for(int i=0;i<str.length;i++){
+                        if(str[i].equals(jTextField.getText())){
+                            isexist = true;
+                            break;
+                        }
                     }
-                    sb.append(jTextField.getText()+",");
-                    System.out.println(sb.toString());
-                    int mid[] = new dataProcess().getData(sb.toString());
-                    for(int i=0;i<num.length;i++){
-                        num[i] = mid[i];
+                    if(isexist){
+                        JOptionPane.showMessageDialog(null, "树中已经存在数据 "+jTextField.getText(), "提示", JOptionPane.INFORMATION_MESSAGE);
                     }
-                    Init();
+                    else{
+                        System.out.println("insert " + jTextField.getText());
+                        if(sb.toString().equals(",")){
+                            sb = new StringBuffer("");
+                        }
+                        sb.append(jTextField.getText()+",");
+                        //System.out.println(sb.toString());
+                        int mid[] = new dataProcess().getData(sb.toString());
+                        for(int i=0;i<num.length;i++){
+                            num[i] = mid[i];
+                        }
+                        Init();
+                    }
                 }
             }
         });
@@ -78,18 +91,31 @@ public class searchBT  extends JPanel {
                     JOptionPane.showMessageDialog(null, "请输入数据！", "提示", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else {
-                    System.out.println("delete " + deleteText.getText());
-                    String s = sb.toString().replace(deleteText.getText()+",","");
-                    sb = new StringBuffer(s);
-                    System.out.println(s);
-                    if(s.length() == 0){
-                        s = ",";
+                    boolean notexist = true;
+                    String[] str = sb.toString().split(",");
+                    for(int i=0;i<str.length;i++){
+                        if(str[i].equals(deleteText.getText())){
+                            notexist = false;
+                            break;
+                        }
                     }
-                    int mid[] = new dataProcess().getData(s);
-                    for(int i=0;i<num.length;i++){
-                        num[i] = mid[i];
+                    if(notexist){
+                        JOptionPane.showMessageDialog(null, "树中不存在数据 "+deleteText.getText(), "提示", JOptionPane.INFORMATION_MESSAGE);
                     }
-                    Init();
+                    else {
+                        System.out.println("delete " + deleteText.getText());
+                        String s = sb.toString().replace(deleteText.getText() + ",", "");
+                        sb = new StringBuffer(s);
+                        System.out.println(s);
+                        if (s.length() == 0) {
+                            s = ",";
+                        }
+                        int mid[] = new dataProcess().getData(s);
+                        for (int i = 0; i < num.length; i++) {
+                            num[i] = mid[i];
+                        }
+                        Init();
+                    }
                 }
             }
         });
