@@ -74,11 +74,22 @@ public class searchBT  extends JPanel {
                         }
                         sb.append(jTextField.getText()+",");
                         //System.out.println(sb.toString());
+                        int flag = 0;
                         int mid[] = new dataProcess().getData(sb.toString());
                         for(int i=0;i<num.length;i++){
-                            num[i] = mid[i];
+                            if(num[i] == mid[i]){
+                                flag++;
+                            }
+                            else{
+                                num[i] = mid[i];
+                            }
                         }
-                        Init();
+                        if(flag == 15){
+                            JOptionPane.showMessageDialog(null, "树的深度超过了 4 ！", "提示", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        else{
+                            Init();
+                        }
                     }
                 }
             }
