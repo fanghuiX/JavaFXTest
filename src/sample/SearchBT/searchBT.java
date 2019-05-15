@@ -20,6 +20,7 @@ public class searchBT  extends JPanel {
     private HeapNode heapNode[]=new HeapNode[15];
     private int num[] = {30,20,50,10,23,-999,80,-999,12,-999,-999,-999,-999,70,-999};
     StringBuffer sb = new StringBuffer();
+    public static boolean isrand = false;
     //
     public searchBT(int width, int height, Main mainBoard) {
         this.width = width;
@@ -33,14 +34,14 @@ public class searchBT  extends JPanel {
         setFocusable(true);
         //add文本框
         jTextField = new JTextField(10);
-        jTextField.setBounds(500, 600, 200, 40);
+        jTextField.setBounds(500, 500, 200, 40);
         this.add(jTextField);
         deleteText = new JTextField(10);
-        deleteText.setBounds(500, 650, 200, 40);
+        deleteText.setBounds(500, 550, 200, 40);
         this.add(deleteText);
         //添加插入按钮
         jButton = new JButton("插入");
-        jButton.setBounds(720,600, 100,40);
+        jButton.setBounds(720,500, 100,40);
         jButton.setContentAreaFilled(false);
         this.add(jButton);
         //响应插入
@@ -52,6 +53,10 @@ public class searchBT  extends JPanel {
                 }
                 else {
                     boolean isexist = false;
+                    if(isrand){
+                        sb = new StringBuffer(",");
+                        isrand = false;
+                    }
                     String[] str = sb.toString().split(",");
                     for(int i=0;i<str.length;i++){
                         if(str[i].equals(jTextField.getText())){
@@ -80,7 +85,7 @@ public class searchBT  extends JPanel {
         });
         //添加删除按钮
         deleteButton = new JButton("删除");
-        deleteButton.setBounds(720,650, 100,40);
+        deleteButton.setBounds(720,550, 100,40);
         deleteButton.setContentAreaFilled(false);
         this.add(deleteButton);
         //响应删除
@@ -91,38 +96,42 @@ public class searchBT  extends JPanel {
                     JOptionPane.showMessageDialog(null, "请输入数据！", "提示", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else {
-                    boolean notexist = true;
-                    String[] str = sb.toString().split(",");
-                    for(int i=0;i<str.length;i++){
-                        if(str[i].equals(deleteText.getText())){
-                            notexist = false;
-                            break;
-                        }
-                    }
-                    if(notexist){
-                        JOptionPane.showMessageDialog(null, "树中不存在数据 "+deleteText.getText(), "提示", JOptionPane.INFORMATION_MESSAGE);
+                    if(isrand){
+                        JOptionPane.showMessageDialog(null, "随机数据，无法删除", "提示", JOptionPane.INFORMATION_MESSAGE);
                     }
                     else {
-                        System.out.println("delete " + deleteText.getText());
-                        String ss = new dataProcess().getdelete(sb.toString(), Integer.parseInt(deleteText.getText()));
-                        String s = ss.replace(deleteText.getText() + ",", "");
-                        sb = new StringBuffer(s);
-                        System.out.println(s);
-                        if (s.length() == 0) {
-                            s = ",";
+                        boolean notexist = true;
+                        String[] str = sb.toString().split(",");
+                        for (int i = 0; i < str.length; i++) {
+                            if (str[i].equals(deleteText.getText())) {
+                                notexist = false;
+                                break;
+                            }
                         }
-                        int mid[] = new dataProcess().getData(s);
-                        for (int i = 0; i < num.length; i++) {
-                            num[i] = mid[i];
+                        if (notexist) {
+                            JOptionPane.showMessageDialog(null, "树中不存在数据 " + deleteText.getText(), "提示", JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            System.out.println("delete " + deleteText.getText());
+                            String ss = new dataProcess().getdelete(sb.toString(), Integer.parseInt(deleteText.getText()));
+                            String s = ss.replace(deleteText.getText() + ",", "");
+                            sb = new StringBuffer(s);
+                            System.out.println(s);
+                            if (s.length() == 0) {
+                                s = ",";
+                            }
+                            int mid[] = new dataProcess().getData(s);
+                            for (int i = 0; i < num.length; i++) {
+                                num[i] = mid[i];
+                            }
+                            Init();
                         }
-                        Init();
                     }
                 }
             }
         });
         //添加随机按钮
         randButton = new JButton("随机");
-        randButton.setBounds(930,600, 100,40);
+        randButton.setBounds(930,500, 100,40);
         randButton.setContentAreaFilled(false);
         this.add(randButton);
         //响应删除
@@ -132,18 +141,22 @@ public class searchBT  extends JPanel {
                 System.out.println("随机");
                 sb = new StringBuffer("");
                 for(int i=0;i<15;i++){
-                    sb.append((int)(Math.random()*200+1)+",");
+                    int num = (int)(Math.random()*200+1);
+                    if(!sb.toString().contains(String.valueOf(num))){
+                        sb.append(num+",");
+                    }
                 }
                 int mid[] = new dataProcess().getData(sb.toString());
                 for(int i=0;i<num.length;i++){
                     num[i] = mid[i];
                 }
                 Init();
+                isrand = true;
             }
         });
         //添加清空按钮
         clearButton = new JButton("清空");
-        clearButton.setBounds(930,650, 100,40);
+        clearButton.setBounds(930,550, 100,40);
         clearButton.setContentAreaFilled(false);
         this.add(clearButton);
         //响应删除
@@ -160,7 +173,7 @@ public class searchBT  extends JPanel {
             }
         });
         tip = new JButton("?");
-        tip.setBounds(830,600, 50,40);
+        tip.setBounds(830,500, 50,40);
         tip.setContentAreaFilled(false);
         this.add(tip);
         //响应插入
