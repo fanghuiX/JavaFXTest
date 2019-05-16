@@ -28,10 +28,10 @@ public class Gnjs{
         return itstance;
     }
     private Scene scene;
-    public void start(Stage stage, String str, String url) {
+    public void start(int width, int height, Stage stage, String str, String url) {
         // create the scene
         stage.setTitle(str);
-        scene = new Scene(new Browser(url),700,600, Color.web("#666970"));
+        scene = new Scene(new Browser(url),width,height, Color.web("#666970"));
         stage.setScene(scene);
         stage.show();
     }

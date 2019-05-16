@@ -232,9 +232,9 @@ public class HeapSort extends JPanel {
     }
     public static boolean begin = true;
     public void sort(boolean flag){
-        System.out.println(Thread.currentThread().getName());
+        //System.out.println(Thread.currentThread().getName());
         while (begin) {
-            System.out.println("sorttttttttt");
+            //System.out.println("sorttttttttt");
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {

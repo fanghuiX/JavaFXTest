@@ -93,7 +93,6 @@ public class CreateGraph{
      * Read the DOT source from a file,
      * convert to image and store the image in the file system.
      */
-    @SuppressWarnings("unused")
     public void start2(String[] nodes,String[] bt,String[] pre,String[] post){
         Graphviz gv = new Graphviz();
 
@@ -116,7 +115,7 @@ public class CreateGraph{
         gv.addln(gv.end_graph());//END
         //节点之间的连接关系输出到控制台
         String dotSource = gv.getDotSource();
-        System.out.println(dotSource);
+        //System.out.println(dotSource);
         //输出什么格式的图片(gif,dot,fig,pdf,ps,svg,png,plain)
         String type = "png";
         //输出到文件夹以及命名
@@ -126,6 +125,35 @@ public class CreateGraph{
         gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
     }
 
+    public void start3(){
+        String n1 = "A [label = \"<f0>23|<f1>45\"]";
+        String n2 = "B [label = \"<f0>12\"]";
+        String n3 = "C [label = \"<f0>55|<f1>75\"]";
+        String n4 = "D [label = \"<f0>2|<f1>5\"]";
+        String n5 = "E [label = \"<f0>53|<f1>54\"]";
+
+        Graphviz gv = new Graphviz();
+
+        gv.addln(gv.start_graph());
+        gv.addln("node [shape = record];");
+        gv.addln("edge[decorate = true];");
+        //设置节点的style
+        gv.addln(n1);
+        gv.addln(n2);
+        gv.addln(n3);
+        gv.addln(n4);
+        gv.addln(n5);
+        gv.addln("A -> B [dir = none, weight = 8]");
+        gv.addln("A -> C [dir = none, weight = 8]");
+        gv.addln("B -> D [dir = none, weight = 8]");
+        gv.addln("C -> E [dir = none, weight = 8]");
+        gv.addln(gv.end_graph());
+        String dotSource = gv.getDotSource();
+        System.out.println(dotSource);
+        String type = "png";
+        File out = new File("src/sample/JavaFXUI/out.png");
+        gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
+    }
     /*public static void main(String[] args){
         //树，二叉树，线索二叉树，森林
         //树（广义表表示）："A(B(E(K,L),F),C(G),D(H(M,N),I,J))";
