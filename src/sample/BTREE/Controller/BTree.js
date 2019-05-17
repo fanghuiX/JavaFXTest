@@ -112,7 +112,7 @@ BTree.prototype.addControls =  function()
 	this.insertField.onkeydown = this.returnSubmit(this.insertField,  this.insertCallback.bind(this), 4);
 	this.controls.push(this.insertField);
 	
-	this.insertButton = addControlToAlgorithmBar("Button", "Insert");
+	this.insertButton = addControlToAlgorithmBar("Button", "插入");
 	this.insertButton.onclick = this.insertCallback.bind(this);
 	this.controls.push(this.insertButton);
 	
@@ -120,7 +120,7 @@ BTree.prototype.addControls =  function()
 	this.deleteField.onkeydown = this.returnSubmit(this.deleteField,  this.deleteCallback.bind(this), 4);
 	this.controls.push(this.deleteField);
 	
-	this.deleteButton = addControlToAlgorithmBar("Button", "Delete");
+	this.deleteButton = addControlToAlgorithmBar("Button", "删除");
 	this.deleteButton.onclick = this.deleteCallback.bind(this);
 	this.controls.push(this.deleteButton);
 	
@@ -128,23 +128,23 @@ BTree.prototype.addControls =  function()
 	this.findField.onkeydown = this.returnSubmit(this.findField,  this.findCallback.bind(this), 4);
 	this.controls.push(this.findField);
 	
-	this.findButton = addControlToAlgorithmBar("Button", "Find");
+	this.findButton = addControlToAlgorithmBar("Button", "查找");
 	this.findButton.onclick = this.findCallback.bind(this);
 	this.controls.push(this.findButton);
 	
-	this.printButton = addControlToAlgorithmBar("Button", "Print");
+	/*this.printButton = addControlToAlgorithmBar("Button", "Print");
 	this.printButton.onclick = this.printCallback.bind(this);
-	this.controls.push(this.printButton);
+	this.controls.push(this.printButton);*/
 	
-	this.clearButton = addControlToAlgorithmBar("Button", "Clear");
+	this.clearButton = addControlToAlgorithmBar("Button", "清空");
 	this.clearButton.onclick = this.clearCallback.bind(this);
 	this.controls.push(this.clearButton);
 	
 	var i;
 	radioButtonNames = [];
-	for (i = MIN_MAX_DEGREE; i <= MAX_MAX_DEGREE; i++)
+	for (i = MIN_MAX_DEGREE; i <= 5; i++)
 	{
-		radioButtonNames.push("Max. Degree = " + String(i));
+		radioButtonNames.push("阶 = " + String(i));
 	}
 	
 	this.maxDegreeRadioButtons = addRadioButtonGroupToAlgorithmBar(radioButtonNames, "MaxDegree");
@@ -156,7 +156,7 @@ BTree.prototype.addControls =  function()
 	}
 	
 	
-	this.premptiveSplitBox = addCheckboxToAlgorithmBar("Preemtive Split / Merge (Even max degree only)");
+	this.premptiveSplitBox = addCheckboxToAlgorithmBar("B-树");
 	this.premptiveSplitBox.onclick = this.premtiveSplitCallback.bind(this);
 	
 	
@@ -456,7 +456,7 @@ BTree.prototype.findElement = function(findValue)
 {
 	this.commands = new Array();
 	
-	this.cmd("SetText", this.messageID, "Finding " + findValue);
+	this.cmd("SetText", this.messageID, "查找 " + findValue);
 	this.findInTree(this.treeRoot, findValue);
 	
 	return this.commands;
@@ -505,7 +505,7 @@ BTree.prototype.findInTree = function(tree, val)
 		else
 		{
 			this.cmd("SetTextColor", tree.graphicID, "#FF0000", i);
-			this.cmd("SetText", this.messageID, "Element " + val + " found");
+			this.cmd("SetText", this.messageID, "节点 " + val + " 被找到");
 			this.cmd("Step");
 			this.cmd("SetTextColor", tree.graphicID, FOREGROUND_COLOR, i);
 			this.cmd("SetHighlight", tree.graphicID, 0);
@@ -524,7 +524,7 @@ BTree.prototype.insertElement = function(insertedValue)
 {
 	this.commands = new Array();
 	
-	this.cmd("SetText", this.messageID, "Inserting " + insertedValue);
+	this.cmd("SetText", this.messageID, "插入 " + insertedValue);
 	this.cmd("Step");
 	
 	if (this.treeRoot == null)
@@ -576,7 +576,7 @@ BTree.prototype.insertNotFull = function(tree, insertValue)
 	this.cmd("Step");
 	if (tree.isLeaf)
 	{
-		this.cmd("SetText", this.messageID, "Inserting " + insertValue + ".  Inserting into a leaf");
+		this.cmd("SetText", this.messageID, "插入 " + insertValue + ".  插入叶子");
 		tree.numKeys++;
 		this.cmd("SetNumElements", tree.graphicID, tree.numKeys);
 		var insertIndex = tree.numKeys - 1;
@@ -624,7 +624,7 @@ BTree.prototype.insert = function(tree, insertValue)
 	this.cmd("Step");
 	if (tree.isLeaf)
 	{
-		this.cmd("SetText", this.messageID, "Inserting " + insertValue + ".  Inserting into a leaf");
+		this.cmd("SetText", this.messageID, "插入 " + insertValue + ".  插入叶子");
 		tree.numKeys++;
 		this.cmd("SetNumElements", tree.graphicID, tree.numKeys);
 		var insertIndex = tree.numKeys - 1;
@@ -675,7 +675,7 @@ BTree.prototype.insertRepair = function(tree)
 
 BTree.prototype.split = function(tree)
 {
-	this.cmd("SetText", this.messageID, "Node now contains too many keys.  Splittig ...");
+	this.cmd("SetText", this.messageID, "分割节点");
 	this.cmd("SetHighlight", tree.graphicID, 1);
 	this.cmd("Step");
 	this.cmd("SetHighlight", tree.graphicID, 0);
@@ -824,7 +824,7 @@ BTree.prototype.split = function(tree)
 BTree.prototype.deleteElement = function(deletedValue)
 {
 	this.commands = new Array();
-	this.cmd("SetText", 0, "Deleting "+deletedValue);
+	this.cmd("SetText", 0, "删除 "+deletedValue);
 	this.cmd("Step");
 	this.cmd("SetText", 0, "");
 	this.highlightID = this.nextIndex++;
@@ -1178,7 +1178,7 @@ BTree.prototype.doDelete = function(tree, val)
 
 BTree.prototype.mergeRight = function(tree) 
 {
-	this.cmd("SetText", this.messageID, "Merging node");
+	this.cmd("SetText", this.messageID, "合并节点");
 	
 	var parentNode = tree.parent;
 	var parentIndex = 0;

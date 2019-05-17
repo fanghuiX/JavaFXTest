@@ -153,10 +153,10 @@ public class MainUI implements Initializable {
                         }
                     }
                     else if(graphindex == 2){
-                        Gnjs.getInstance().start(1800, 900,new Stage(), "B-树", "file:///"+btreehtml);
+                        Gnjs.getInstance().start(1000, 655,new Stage(), "B-树", "file:///"+btreehtml);
                     }
                     else if(graphindex == 3){
-                        Gnjs.getInstance().start(1800, 900,new Stage(), "B+树", "file:///"+bplustreehtml);
+                        Gnjs.getInstance().start(1000, 655,new Stage(), "B+树", "file:///"+bplustreehtml);
                     }
                     else if(graphindex == 4) {
                         new newThread().start();
