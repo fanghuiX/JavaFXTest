@@ -124,7 +124,14 @@ public class searchBT  extends JPanel {
                         } else {
                             System.out.println("delete " + deleteText.getText());
                             String ss = new dataProcess().getdelete(sb.toString(), Integer.parseInt(deleteText.getText()));
-                            String s = ss.replace(deleteText.getText() + ",", "");
+                            String sss[] = ss.split(",");
+                            StringBuffer sbb = new StringBuffer("");
+                            for(int i=0;i<sss.length;i++){
+                                if(!sss[i].equals(deleteText.getText())){
+                                    sbb.append(sss[i]+",");
+                                }
+                            }
+                            String s = sbb.toString();
                             sb = new StringBuffer(s);
                             System.out.println(s);
                             if (s.length() == 0) {
