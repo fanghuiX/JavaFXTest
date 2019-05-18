@@ -19,6 +19,7 @@ import sample.MazeDFS.AlgoVisualizer;
 import sample.GraphViz.showSettings;
 import sample.HeapSort.inputNode;
 import sample.SearchBT.newThread;
+import sample.MazePath.Maze;
 
 import java.io.File;
 import java.net.URL;
@@ -214,8 +215,11 @@ public class MainUI implements Initializable {
                     System.out.println("choiceg index:"+new_val);
                     gindex = new_val.intValue();
                     if(gindex == 3) {
-                        String mazeFile = "src/sample/MazePath/maze_50_101.txt";
-                        AlgoVisualizer vis = new AlgoVisualizer(mazeFile,10);
+                        try{
+                            new Maze().start(new Stage());
+                        }catch (Exception e){
+                            System.out.println(e.getMessage());
+                        }
                     }
                     else {
                         Defaultui dui = new Defaultui();

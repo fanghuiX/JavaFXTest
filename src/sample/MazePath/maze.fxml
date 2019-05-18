@@ -6,24 +6,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="249.0" prefWidth="459.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MazePath.Maze">
+<AnchorPane prefHeight="189.0" prefWidth="351.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MazePath.Maze">
    <children>
-      <RadioButton layoutX="32.0" layoutY="60.0" mnemonicParsing="false" text="30*30">
+      <RadioButton layoutX="14.0" layoutY="48.0" mnemonicParsing="false" onMouseClicked="#sizesmall" text="30*30">
          <toggleGroup>
             <ToggleGroup fx:id="size" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="175.0" layoutY="60.0" mnemonicParsing="false" text="50*100" toggleGroup="$size" />
-      <RadioButton layoutX="322.0" layoutY="60.0" mnemonicParsing="false" selected="true" text="100*100" toggleGroup="$size" />
-      <Label layoutX="32.0" layoutY="14.0" text="迷宫大小：" />
-      <Label layoutX="32.0" layoutY="106.0" text="寻路方式：" />
-      <RadioButton layoutX="32.0" layoutY="146.0" mnemonicParsing="false" selected="true" text="深度优先">
+      <RadioButton layoutX="136.0" layoutY="48.0" mnemonicParsing="false" onMouseClicked="#sizemid" text="50*100" toggleGroup="$size" />
+      <RadioButton layoutX="278.0" layoutY="48.0" mnemonicParsing="false" onMouseClicked="#sizelarge" selected="true" text="100*100" toggleGroup="$size" />
+      <Label layoutX="14.0" layoutY="14.0" text="迷宫大小：" />
+      <Label layoutX="14.0" layoutY="85.0" text="寻路方式：" />
+      <RadioButton layoutX="14.0" layoutY="113.0" mnemonicParsing="false" onMouseClicked="#deepsearch" selected="true" text="深度优先">
          <toggleGroup>
             <ToggleGroup fx:id="method" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="175.0" layoutY="146.0" mnemonicParsing="false" text="广度优先" toggleGroup="$method" />
-      <Button layoutX="182.0" layoutY="191.0" mnemonicParsing="false" text="开始寻路" />
+      <RadioButton layoutX="136.0" layoutY="113.0" mnemonicParsing="false" onMouseClicked="#boardsearch" text="广度优先" toggleGroup="$method" />
+      <Button layoutX="153.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#clickok" text="开始寻路" />
    </children>
 </AnchorPane>

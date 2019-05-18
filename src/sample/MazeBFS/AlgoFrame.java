@@ -22,7 +22,7 @@ public class AlgoFrame extends JFrame{
         /*setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
-        setBounds(400,100,canvasWidth,canvasHeight);
+        setBounds(400,100,canvasWidth+20,canvasHeight+50);
         setVisible(true);
     }
 
