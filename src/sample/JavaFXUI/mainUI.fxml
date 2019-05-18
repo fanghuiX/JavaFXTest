@@ -159,8 +159,7 @@
                   <String fx:value="其他算法可视化" />
                   <String fx:value="电线布线" />
                   <String fx:value="喷漆机器人" />
-                  <String fx:value="迷宫寻路深度搜索" />
-                  <String fx:value="迷宫寻路广度搜索" />
+                  <String fx:value="迷宫寻路" />
               </FXCollections>
           </items>
       </ChoiceBox>

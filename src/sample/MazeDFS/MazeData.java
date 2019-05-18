@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class MazeData {
 
-    public static final char ROAD = ' ';
+    public static final char ROAD = 'O';
     public static final char WALL = '#';
 
     private int entranceX, entranceY;

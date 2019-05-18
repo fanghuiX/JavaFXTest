@@ -2,7 +2,6 @@ package sample.MazeBFS;
 
 import java.awt.*;
 import java.util.LinkedList;
-import java.util.Stack;
 
 public class AlgoVisualizer {
 
@@ -13,12 +12,12 @@ public class AlgoVisualizer {
     private AlgoFrame frame;
     private static final int d[][] = {{-1,0},{0,1},{1,0},{0,-1}};
 
-    public AlgoVisualizer(String mazeFile){
+    public AlgoVisualizer(String mazeFile, int side){
 
         // 初始化数据
         data = new MazeData(mazeFile);
-        int sceneHeight = data.N() * blockSide;
-        int sceneWidth = data.M() * blockSide;
+        int sceneHeight = data.N() * side;
+        int sceneWidth = data.M() * side;
 
         // 初始化视图
         EventQueue.invokeLater(() -> {

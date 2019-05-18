@@ -214,12 +214,8 @@ public class MainUI implements Initializable {
                     System.out.println("choiceg index:"+new_val);
                     gindex = new_val.intValue();
                     if(gindex == 3) {
-                        String mazeFile = "src/sample/MazeDFS/maze_101_101.txt";
-                        AlgoVisualizer vis = new AlgoVisualizer(mazeFile);
-                    }
-                    else if(gindex == 4) {
-                        String mazeFile = "src/sample/MazeDFS/maze_101_101.txt";
-                        new sample.MazeBFS.AlgoVisualizer(mazeFile);
+                        String mazeFile = "src/sample/MazePath/maze_50_101.txt";
+                        AlgoVisualizer vis = new AlgoVisualizer(mazeFile,10);
                     }
                     else {
                         Defaultui dui = new Defaultui();

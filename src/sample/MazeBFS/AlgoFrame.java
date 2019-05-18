@@ -1,7 +1,7 @@
 package sample.MazeBFS;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 public class AlgoFrame extends JFrame{
 
@@ -22,7 +22,7 @@ public class AlgoFrame extends JFrame{
         /*setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
-
+        setBounds(400,100,canvasWidth,canvasHeight);
         setVisible(true);
     }
 
