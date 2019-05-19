@@ -214,7 +214,7 @@ public class MainUI implements Initializable {
                  Number old_val,Number new_val) -> {
                     System.out.println("choiceg index:"+new_val);
                     gindex = new_val.intValue();
-                    if(gindex == 3) {
+                    if(gindex == 2) {
                         try{
                             new Maze().start(new Stage());
                         }catch (Exception e){

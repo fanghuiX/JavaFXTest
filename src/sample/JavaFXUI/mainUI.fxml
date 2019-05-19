@@ -133,7 +133,6 @@
                <String fx:value="B-树" />
                <String fx:value="B+树" />
                <String fx:value="二叉排序树" />
-               <String fx:value="红黑树" />
            </FXCollections>
            </items>
        </ChoiceBox>
@@ -157,7 +156,6 @@
           <items>
               <FXCollections fx:factory="observableArrayList">
                   <String fx:value="其他算法可视化" />
-                  <String fx:value="电线布线" />
                   <String fx:value="喷漆机器人" />
                   <String fx:value="迷宫寻路" />
               </FXCollections>

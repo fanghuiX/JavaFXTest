@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 import sample.SortCreate.*;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class SortCompare{
     @FXML
@@ -29,9 +31,22 @@ public class SortCompare{
         primaryStage.setResizable(false);
     }
 
+    public boolean isNumber(String str){
+        Pattern pattern = Pattern.compile("[0-9]*");
+        return pattern.matcher(str).matches();
+    }
     public void startcompare(MouseEvent mouseEvent) {
         String str = numtext.getText();
         String[] string = str.split(",");
+        for(int i=0;i<string.length;i++){
+            if(!isNumber(string[i]) || str.equals("")){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("警告");
+                alert.setHeaderText("输入错误");
+                alert.setContentText("请按照正确格式输入数字！");
+                alert.showAndWait();
+            }
+        }
         int[] num = new int[string.length];
         int[] num1 = new int[string.length];
         int[] num2 = new int[string.length];
@@ -59,7 +74,16 @@ public class SortCompare{
         String secondtime = secondsr.getSorttime();
 
         sortCompareUI scui = new sortCompareUI();
-        scui.start(new Stage(),num3,firstsort,secondsort,first,second,firsttime,secondtime);
+        if(first.equals("选择第一个排序算法") || second.equals("选择第二个排序算法")){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("警告");
+            alert.setHeaderText("出现一个错误");
+            alert.setContentText("请选择正确的排序算法！");
+            alert.showAndWait();
+        }
+        else{
+            scui.start(new Stage(),num3,firstsort,secondsort,first,second,firsttime,secondtime);
+        }
     }
 
     public void randomnum() {
