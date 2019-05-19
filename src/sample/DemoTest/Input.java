@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Button;
@@ -13,6 +14,7 @@ import sample.SortCreate.*;
 
 import java.awt.*;
 import java.util.Random;
+import java.util.regex.Pattern;
 
 public class Input {
 
@@ -51,11 +53,26 @@ public class Input {
         return num;
     }
 
+    public boolean isNumber(String str){
+        Pattern pattern = Pattern.compile("[0-9]*");
+        return pattern.matcher(str).matches();
+    }
+
     public void startsort(){
         int sortindex = new MainUI().sortindex;
         //System.out.println("radiobutton:"+updown.isSelected());
         boolean judge = updown.isSelected();
         //由于调用一次排序函数，num已经被排序好，所以多初始化几个初始数组
+        String[] string = inputta.getText().split(",");
+        for(int i=0;i<string.length;i++){
+            if(!isNumber(string[i]) || inputta.getText().equals("")){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("警告");
+                alert.setHeaderText("输入错误");
+                alert.setContentText("请按照正确格式输入数字！");
+                alert.showAndWait();
+            }
+        }
         int[] num = getarr(inputta.getText());
         int[] num1 = getarr(inputta.getText());
         int[] num2 = getarr(inputta.getText());
