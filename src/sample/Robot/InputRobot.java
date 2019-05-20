@@ -25,16 +25,11 @@ public class InputRobot extends Application {
     }
 
     public void clickok(){
-        System.out.println(num.getText());
-        System.out.println(position.getText());
         String string = position.getText();
-        string = string.replace(" ","");
-        string = string.replace("\n","");
-        char[] c = string.toCharArray();
-        for(int i=0;i<c.length;i++){
-            System.out.print(c[i]+" ");
-        }
-        new Main(600, 500);
+        string = string.replace(" ",",");
+        string = string.replace("\n",",");
+        int number = Integer.parseInt(num.getText());
+        new Main(600, 500, number, string);
     }
 
     public void clickexample(){
