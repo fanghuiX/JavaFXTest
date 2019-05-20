@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="325.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Robot.InputRobot">
+   <children>
+      <Label layoutX="5.0" layoutY="14.0" text="方块个数：" />
+      <Label layoutX="5.0" layoutY="48.0" text="输入方块的坐标和颜色：" />
+      <TextField fx:id="num" layoutX="104.0" layoutY="8.0" prefHeight="7.0" prefWidth="90.0" />
+      <TextArea fx:id="position" layoutX="7.0" layoutY="78.0" prefHeight="191.0" prefWidth="358.0" />
+      <Button onMouseClicked="#clickok" layoutX="164.0" layoutY="282.0" mnemonicParsing="false" text="确定" />
+      <Button onMouseClicked="#clickexample" layoutX="276.0" layoutY="42.0" mnemonicParsing="false" text="数据样例" />
+   </children>
+</AnchorPane>
