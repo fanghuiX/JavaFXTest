@@ -24,19 +24,26 @@ public class InputRobot extends Application {
         primaryStage.setResizable(false);
     }
 
-    public void clickok(){
+    public void clickok() throws Exception{
         String string = position.getText();
         string = string.replace(" ",",");
         string = string.replace("\n",",");
         int number = Integer.parseInt(num.getText());
-        new Main(600, 500, number, string);
+        int temp = 0;
+        String str[] = string.split(",");
+        for(int i=0;i<str.length;i++){
+            if(Integer.parseInt(str[i]) > temp){
+                temp = Integer.parseInt(str[i]);
+            }
+        }
+        new Main(temp*50+150, temp*50+100, number, string);
     }
 
     public void clickexample(){
         num.setText("7");
-        position.setText("0 0 2 2 1"+"\n"+"0 2 1 6 2"+
-                "\n"+"2 0 4 2 1"+"\n"+"1 2 4 3 2"+"\n"+
-                "1 3 3 6 1"+"\n"+"4 0 6 3 1"+"\n"+
+        position.setText("0 0 2 2 1"+"\n"+"2 0 6 1 2"+
+                "\n"+"0 2 2 4 1"+"\n"+"2 1 3 4 2"+"\n"+
+                "3 1 6 3 1"+"\n"+"0 4 3 6 1"+"\n"+
                 "3 3 6 6 2");
     }
 }

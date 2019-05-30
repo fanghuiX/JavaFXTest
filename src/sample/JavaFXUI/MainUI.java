@@ -20,6 +20,7 @@ import sample.GraphViz.showSettings;
 import sample.HeapSort.inputNode;
 import sample.SearchBT.newThread;
 import sample.MazePath.Maze;
+import sample.Robot.InputRobot;
 
 import java.io.File;
 import java.net.URL;
@@ -154,10 +155,10 @@ public class MainUI implements Initializable {
                         }
                     }
                     else if(graphindex == 2){
-                        Gnjs.getInstance().start(1000, 655,new Stage(), "B-树", "file:///"+btreehtml);
+                        Gnjs.getInstance().start(1000, 580,new Stage(), "B-树", "file:///"+btreehtml);
                     }
                     else if(graphindex == 3){
-                        Gnjs.getInstance().start(1000, 655,new Stage(), "B+树", "file:///"+bplustreehtml);
+                        Gnjs.getInstance().start(1000, 580,new Stage(), "B+树", "file:///"+bplustreehtml);
                     }
                     else if(graphindex == 4) {
                         new newThread().start();
@@ -221,11 +222,11 @@ public class MainUI implements Initializable {
                             System.out.println(e.getMessage());
                         }
                     }
-                    else {
-                        Defaultui dui = new Defaultui();
-                        try {
-                            dui.start(new Stage());
-                        } catch (Exception e) {
+                    else if(gindex == 1) {
+                        InputRobot ir = new InputRobot();
+                        try{
+                            ir.start(new Stage());
+                        }catch (Exception e){
                             System.out.println(e.getMessage());
                         }
                     }

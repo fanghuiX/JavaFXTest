@@ -25,7 +25,10 @@ public class Robot {
 4 0 6 3 1
 3 3 6 6 2*/
         //输入有几个方块
-        n = input.nextInt();
+        //n = input.nextInt();
+        n = 7;
+        int block[][] = {{0,0,2,2,1},{0,2,1,6,2},{2,0,4,2,1},{1,2,4,3,2},{1,3,3,6,1},
+                {4,0,6,3,1},{3,3,6,6,2}};
 
         MAXn = n+1;
         color = new int[n];
@@ -49,11 +52,16 @@ public class Robot {
         //输入每个方块的位置和颜色：y1,x1,y2,x2,c
         for(int i=0; i<n; i++){
             int x1,y1,x2,y2;
-            x1 = input.nextInt();
+            /*x1 = input.nextInt();
             y1 = input.nextInt();
             x2 = input.nextInt();
             y2 = input.nextInt();
-            color[i] = input.nextInt();
+            color[i] = input.nextInt();*/
+            x1 = block[i][0];
+            y1 = block[i][1];
+            x2 = block[i][2];
+            y2 = block[i][3];
+            color[i] = block[i][4];
             for(int j=x1; j<x2; j++)
                 for(int k=y1; k<y2; k++)
                     board[j][k] = i;
@@ -73,6 +81,7 @@ public class Robot {
     private static void comp(){
         int opt = -1;
         for(int i=0; i<n; i++){
+            System.out.println("从第"+i+"个小矩形开始喷漆");
             backtrack(i,po2[n]-1);
             if(opt<0 || opt>m[i][po2[n]-1]){
                 opt = m[i][po2[n]-1];
@@ -80,6 +89,13 @@ public class Robot {
         }
 
         System.out.println(opt);
+        System.out.println("ggggg");
+        for(int ii=0;ii<m.length;ii++){
+            for(int jj=0;jj<m[0].length;jj++){
+                System.out.print(m[ii][jj]+" ");
+            }
+            System.out.println();
+        }
     }
 
     private static void backtrack(int r, int p){
@@ -91,14 +107,19 @@ public class Robot {
             }
 
         int np = p-po2[r];
+        //System.out.println(np);
         if(np == 0) {
             m[r][p]=1;
         }
         else {
+            System.out.println("hhhhhh");
             for(int i=0; i<n; i++)
                 if((np&po2[i]) > 0){
+                    //System.out.println(i);
                     backtrack(i,np);
+                    System.out.println(i);
                     int v = m[i][np]+(color[r]==color[i]?0:1);
+                    //System.out.println(v);
                     if(m[r][p]<0 || m[r][p]>v) {
                         m[r][p]=v;
                     }
