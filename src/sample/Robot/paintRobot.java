@@ -52,8 +52,8 @@ public class paintRobot extends JPanel {
         gg.setStroke(s);
     }
     public void Init(){
-        System.out.println(number);
-        System.out.println(string);
+        //System.out.println(number);
+        //System.out.println(string);
         String[] str = string.split(",");
         block = new int[number][5];
         rect = new Rectangle[number];
@@ -74,25 +74,25 @@ public class paintRobot extends JPanel {
         for(int i=0;i<block.length;i++){
             for(int j=0;j<block[0].length;j++){
                 block[i][j] = Integer.parseInt(str[i*5+j]);
-                System.out.print(block[i][j]+" ");
+                //System.out.print(block[i][j]+" ");
             }
         }
         for(int i=0;i<block.length;i++){
             //drawRect(int x, int y, int width, int height)
             g.drawRect(block[i][1],block[i][0],block[i][3]*20,block[i][2]*20);
         }
-        System.out.println("hi");
+        //System.out.println("hi");
     }
 
     public void fillColor(String str) throws Exception{
         String[] order = str.split(",");
         times = 1;
         for(int i=0;i<order.length;i++){
-            int j = Integer.parseInt(order[i])-1;
+            int j = Integer.parseInt(order[i]);
             rect[j].setCOLOR(block[j][4]);
             take = "拿起颜色为 "+block[j][4]+" 的喷枪";
             if(i>=1){
-                if(block[j][4] != block[Integer.parseInt(order[i-1])-1][4]){
+                if(block[j][4] != block[Integer.parseInt(order[i-1])][4]){
                     times++;
                 }
             }

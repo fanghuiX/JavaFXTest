@@ -7,7 +7,7 @@ public class Main extends JFrame{
     private int height, width;
     private static paintRobot paintrobot;
     private static JComponent now;
-    public Main(int height, int width, int number, String string) throws Exception{
+    public Main(int height, int width, int number, String string, String str) throws Exception{
         this.height = height;
         this.width = width;
         now = paintrobot;
@@ -28,6 +28,7 @@ public class Main extends JFrame{
         paintrobot.setVisible(true);
         setVisible(true);
         paintrobot.Init();
-        paintrobot.fillColor("2,4,5,1,3,6,7");
+        //"2,4,5,1,3,6,7"
+        paintrobot.fillColor(str);
     }
 }
