@@ -1,5 +1,6 @@
 package sample.GraphViz;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Properties;
@@ -63,10 +64,12 @@ public class bean {
 
     public static void setvalue(String key, String value) throws Exception {
         Properties props=new Properties();//使用Properties类来加载属性文件
-        FileInputStream iFile = new FileInputStream("src/sample/GraphViz/setting.properties");
+        File file = new File("src/sample/GraphViz/setting.properties");
+        FileInputStream iFile = new FileInputStream(file.getAbsolutePath().replace('\\','/'));
+        //System.out.println(file.getAbsolutePath().replace('\\','/'));
         props.load(iFile);
         props.setProperty(key,value);
-        FileOutputStream fos = new FileOutputStream("src/sample/GraphViz/setting.properties");
+        FileOutputStream fos = new FileOutputStream(file.getAbsolutePath().replace('\\','/'));
         // 将Properties集合保存到流中
         props.store(fos, "change  properties");
         fos.close();

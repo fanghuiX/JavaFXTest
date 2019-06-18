@@ -53,8 +53,8 @@ public class InputRobot extends Application {
         String s = "0";
         Robot rb = new Robot(number,string);
         ArrayList<String> list = rb.getdata();
-        System.out.println(rb.times);
-        System.out.println(list.get(0));
+        //System.out.println(rb.times);
+        //System.out.println(list.get(0));
         outer:for(String ss : list){
             //System.out.println(ss);
             String[] smid = ss.split(",");
@@ -69,15 +69,15 @@ public class InputRobot extends Application {
                     //System.out.println(sss);
                     //System.out.println(orderNum(number,sss));
                     if(orderNum(number,sss)){
-                        System.out.println(sss);
+                        //System.out.println(sss);
                         if(getStr(rb.times,number,block,sss)){
                             s = sss;
-                            System.out.println(s);
+                            //System.out.println(s);
                             break outer;
                         }
                         else{
                             s = sss;
-                            System.out.println(s);
+                            //System.out.println(s);
                         }
                     }
                 }
